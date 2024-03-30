@@ -29,4 +29,6 @@ vim.opt.cursorline = true
 vim.opt.scrolloff = 10
 
 require("lwidm.remap")
+require("lwidm.misc")
+require("lwidm.noArrowKeys")
 require("lwidm.lazy")
