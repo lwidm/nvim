@@ -19,9 +19,9 @@ vim.opt.signcolumn = 'yes'
 -- Decrease update time and mapped sequence wait time (Displays which-key popup sooner)
 vim.opt.updatetime = 250
 vim.opt.timeoutlen = 300
--- TODO
--- vim.opt.list = true
--- vim.opt.listchars = {}
+-- Set how neovim will display certain whitespaces
+vim.opt.list = true
+vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
 -- give a live preview of substitutions
 vim.opt.inccommand = 'split'
 vim.opt.cursorline = true
