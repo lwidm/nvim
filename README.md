@@ -6,3 +6,4 @@
 * make
 * cmake
 * vim-spell-de
+* npm

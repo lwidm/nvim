@@ -16,6 +16,8 @@ return {
 				rust_analyzer = {}, -- rust
 				lua_ls = {}, -- lua
 				cmake = {}, -- cmake
+				pyright = {}, -- python
+				debugpy = {}, -- for debuggin python
 				-- jsonls = {}, -- json
 				-- web
 				-- html = {}, -- html
@@ -26,9 +28,15 @@ return {
 			local format_servers = {
 				"stylua",
 				"clang-format",
+				"black",
+			}
+			local null_ls_extensions = {
+				"mypy",
+				"ruff",
 			}
 			local ensure_installed = vim.tbl_keys(servers or {})
 			vim.list_extend(ensure_installed, format_servers)
+			vim.list_extend(ensure_installed, null_ls_extensions)
 			require("mason").setup()
 			require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 			require("mason-lspconfig").setup({
@@ -56,8 +64,30 @@ return {
 							},
 						})
 					end,
+					["pyright"] = function()
+						local lspconfig = require("lspconfig")
+						lspconfig.pyright.setup({
+							capabilities = capabilities,
+							filetypes = { "python" },
+						})
+					end,
 				},
 			})
+		end,
+	},
+
+	-- null-ls
+	{
+		"jose-elias-alvarez/null-ls.nvim",
+		ft = { "python" },
+		opts = function()
+			local null_ls = require("null-ls")
+			return {
+				sources = {
+					null_ls.builtins.diagnostics.mypy,
+					null_ls.builtins.diagnostics.ruff,
+				},
+			}
 		end,
 	},
 
@@ -171,9 +201,9 @@ return {
 			end,
 			formatters_by_ft = {
 				lua = { "stylua" },
-				c = { "clang-format -style=Google" },
-				cpp = { "clang-format -style=Google" },
-				python = { "isort" },
+				c = { "clang-format --style=Google" },
+				cpp = { "clang-format --style=Google" },
+				python = { "black" },
 			},
 		},
 	},

@@ -33,6 +33,15 @@ vim.keymap.set(
 	{ desc = "[L]anguage spell checking set [G]erman" }
 )
 
+-- debugging
+vim.keymap.set("n", "<leader>db", "<cmd> DapToggleBreakpoint <CR>", { desc = "[D]ebug (Dap) toggle [B]reakpoint" })
+vim.keymap.set("n", "<leader>dpr", function()
+	require("dap-python").test_method()
+end, { desc = "[D]ebug (Dap) [Pr]ogram" })
+
+-- autoformat
+vim.keymap.set("n", "<leader>fm", ':lua require("conform").format()<CR>', { silent = true, desc = "auto [F]or[m]at" })
+
 -- LSP keymaps
 vim.api.nvim_create_autocmd("LspAttach", {
 	group = vim.api.nvim_create_augroup("kickstart-lsp-attach", { clear = true }),
