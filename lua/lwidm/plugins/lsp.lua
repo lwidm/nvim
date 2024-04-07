@@ -48,23 +48,6 @@ return {
 					-- ['rust_analyzer'] = function ()
 					-- 	require('rust_tools').setup {}
 					-- end,
-					["clangd"] = function()
-						local lspconfig = require("lspconfig")
-						lspconfig.lua_ls.setup({
-							cmd = { "clangd" },
-							filetypes = { "c", "cpp", "objc", "objcpp", "cuda", "proto" },
-							root_dir = function () 
-								return lspconfig.util.root_pattern(
-									".clangd",
-									".clang-tidy",
-									"compile_commands.json",
-									"compile_flags.txt",
-									"configure.ac",
-									".git"
-								)
-							end
-						})
-					end,
 					["lua_ls"] = function()
 						local lspconfig = require("lspconfig")
 						lspconfig.lua_ls.setup({
@@ -75,22 +58,6 @@ return {
 									},
 								},
 							},
-						})
-					end,
-					["nil_ls"] = function()
-						local lspconfig = require("lspconfig")
-						lspconfig.nil_ls.setup({ filetypes = { "nix" },
-							cmd = { "nil" },
-							filetypes = { "nix" },
-							root_dir = function ()
-								return lspconfig.util.root_pattern("flake.nix", ".git")
-							end,
-							-- settings = {
-							-- 	nil_ls = {
-							-- 		formatting = { command = "nixpkgs-fmt" }
-							-- 	},
-							-- },
-
 						})
 					end,
 				},
