@@ -4,6 +4,8 @@ return {
 		init = function()
 			require('catppuccin').setup({
 				flavour = 'mocha',
+				background = 'dark',
+				transparent_background = true,
 			})
 			vim.cmd.colorscheme 'catppuccin'
 		end

@@ -6,3 +6,6 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 		vim.highlight.on_yank()
 	end,
 })
+
+-- Transparent background
+vim.cmd('highlight Normal ctermbg=none guibg=none')
