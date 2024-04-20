@@ -8,4 +8,6 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 })
 
 -- Transparent background
+vim.cmd('set background=dark')
 vim.cmd('highlight Normal ctermbg=none guibg=none')
+vim.cmd('highlight TelescopeNormal ctermbg=none guibg=none')
