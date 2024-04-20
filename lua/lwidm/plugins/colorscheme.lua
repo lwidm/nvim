@@ -10,12 +10,6 @@ return {
 					dark = "mocha",
 				},
 				transparent_background = true,
-				custom_hightlights = function(mocha)
-					return {
-						Comment = { fg = colors.flamingo, bg = colors.overlay0 },
-					}
-				end,
-				-- TODO: Test comment
 				highlight_overrides = {
 					all = function(mocha)
 						return {
