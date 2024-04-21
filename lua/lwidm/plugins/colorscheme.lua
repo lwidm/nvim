@@ -7,7 +7,8 @@ return {
 				flavour = 'auto',
 				background = {
 					light = "latte",
-					dark = "macchiato",
+					-- dark = "macchiato",
+					dark = "mocha",
 				},
 				transparent_background = true,
 				highlight_overrides = {
