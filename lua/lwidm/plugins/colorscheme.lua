@@ -1,3 +1,7 @@
+local isTransparent = true
+if ( os.getenv("MYSYSTEM") == "wslLaptop" or os.getenv("MYSYSTEM") == "wslDesktop" ) then
+	isTransparent = false
+end
 return {
 	{ -- colorscheme
 		'catppuccin/nvim', name='catppuccin', priority=1000,
@@ -10,7 +14,7 @@ return {
 					-- dark = "macchiato",
 					dark = "mocha",
 				},
-				transparent_background = true,
+				transparent_background = isTransparent,
 				highlight_overrides = {
 					all = function(mocha)
 						return {
