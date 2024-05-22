@@ -16,9 +16,8 @@ return {
 				rust_analyzer = {}, -- rust
 				lua_ls = {}, -- lua
 				cmake = {}, -- cmake
-				nil_ls = {
-					
-				},
+				nil_ls = {},
+				pyright = {}, -- python
 				-- jsonls = {}, -- json
 				-- web
 				-- html = {}, -- html
