@@ -1,5 +1,5 @@
 local isTransparent = true
-if ( os.getenv("MYSYSTEM") == "wslLaptop" or os.getenv("MYSYSTEM") == "wslDesktop" ) then
+if ( os.getenv("MYSYSTEM") == "wslLaptop" or os.getenv("MYSYSTEM") == "wslDesktop" or os.getenv("MYSYSTEM") == "wslMaerz") then
 	isTransparent = false
 end
 return {
