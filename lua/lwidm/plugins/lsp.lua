@@ -16,7 +16,7 @@ return {
 				rust_analyzer = {}, -- rust
 				lua_ls = {}, -- lua
 				cmake = {}, -- cmake
-				nil_ls = {},
+				nil_ls = {}, -- nix
 				pyright = {}, -- python
 				-- jsonls = {}, -- json
 				-- web
@@ -26,12 +26,18 @@ return {
 				-- intelephense = {}, -- php
 			}
 			local format_servers = {
-				"stylua",
-				"clang-format",
-				"nixpkgs-fmt",
+				"stylua", -- lua
+				"clang-format", -- c and c++
+				"nixpkgs-fmt", -- NixOs
+				"black", -- python
+			}
+			local other_tools = {
+				"mypy", -- python: static typing
+				"ruff", -- python: linter and formatter
 			}
 			local ensure_installed = vim.tbl_keys(servers or {})
 			vim.list_extend(ensure_installed, format_servers)
+			vim.list_extend(ensure_installed, other_tools)
 			require("mason").setup()
 			require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 			require("mason-lspconfig").setup({
@@ -176,9 +182,24 @@ return {
 				lua = { "stylua" },
 				c = { "clang-format -style=Google" },
 				cpp = { "clang-format -style=Google" },
-				python = { "isort" },
+				python = { "black" },
 				nix = { "nixpkgs-fmt" },
 			},
 		},
+	},
+
+	-- null_ls
+	{
+		"jose-elias-alvarez/null-ls.nvim",
+		ft = { "python" },
+		config = function()
+			local null_ls = require("null-ls")
+			null_ls.setup({
+				sources = {
+					null_ls.builtins.diagnostics.mypy,
+					null_ls.builtins.diagnostics.ruff,
+				},
+			})
+		end,
 	},
 }
