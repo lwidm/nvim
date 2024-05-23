@@ -18,6 +18,7 @@ return {
 				cmake = {}, -- cmake
 				nil_ls = {}, -- nix
 				pyright = {}, -- python
+				debugpy = {}, -- python debugging
 				-- jsonls = {}, -- json
 				-- web
 				-- html = {}, -- html
