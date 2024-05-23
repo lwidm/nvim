@@ -5,15 +5,16 @@ return {
 	{
 		"mfussenegger/nvim-dap",
 		keys = {
-			{ "<leader>db", "<cmd> DapToggleBreakpoint <CR>", mode = "n", desc = "([D]ebugging) Toggle [B]reakpoint" },
+			{ "<leader>db", "<cmd> DapToggleBreakpoint <CR>", mode = "n", desc = "[D]ebugging: Toggle [B]reakpoint" },
 			{
 				"<leader>drc",
 				function()
 					require("dap").continue()
 				end,
 				mode = "n",
-				desc = "([D]ebugging) [R]un [C]ontinue",
+				desc = "[D]ebugging: [R]un [C]ontinue",
 			},
+			-- { "<leader>dr", mode = "n", desc = "[D]ebugging: [R]un + prefix" },
 		},
 	},
 
@@ -52,7 +53,7 @@ return {
 					require("dapui").open()
 				end,
 				mode = "n",
-				desc = "([D]ebugging) [U]i [O]pen",
+				desc = "[D]ebugging: [U]i [O]pen",
 			},
 			{
 				"<leader>duc",
@@ -60,7 +61,7 @@ return {
 					require("dapui").close()
 				end,
 				mode = "n",
-				desc = "([D]ebugging) [U]i [C]lose",
+				desc = "[D]ebugging: [U]i [C]lose",
 			},
 		},
 	},
@@ -87,29 +88,30 @@ return {
 			require("dap-python").setup(path)
 		end,
 		keys = {
+			-- { "<leader>dt", mode = "n", desc = "[D]ebugging: [T]est + prefix" },
 			{
-				"<leader>drm",
+				"<leader>dtm",
 				function()
 					require("dap-python").test_method()
 				end,
 				mode = "n",
-				desc = "([D]ebugging) [R]un [M]ethod (above cursor)",
+				desc = "[D]ebugging: [T]est [M]ethod (above cursor)",
 			},
 			{
-				"<leader>drc",
+				"<leader>dtc",
 				function()
 					require("dap-python").test_class()
 				end,
 				mode = "n",
-				desc = "([D]ebugging) [R]un [C]lass (above cursor)",
+				desc = "[D]ebugging: [T]est [C]lass (above cursor)",
 			},
 			{
-				"<leader>drs",
+				"<leader>dts",
 				function()
 					require("dap-python").debug_selection()
 				end,
 				mode = "n",
-				desc = "([D]ebugging) [R]un [S]election",
+				desc = "[D]ebugging: [T]est [S]election",
 			},
 		},
 	},

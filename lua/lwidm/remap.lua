@@ -78,7 +78,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		--  Symbols are things like variables, functions, types, etc.
 		vim.keymap.set(
 			"n",
-			"<leader>ds",
+			"<leader>Ds",
 			require("telescope.builtin").lsp_document_symbols,
 			{ buffer = event.buf, desc = "LSP: [[D]ocument [S]ymbols" }
 		)
@@ -87,7 +87,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		--  Symbols are things like variables, functions, types, etc.
 		vim.keymap.set(
 			"n",
-			"<leader>ds",
+			"<leader>Ds",
 			require("telescope.builtin").lsp_document_symbols,
 			{ buffer = event.buf, desc = "LSP: [[D]ocument [S]ymbols" }
 		)
