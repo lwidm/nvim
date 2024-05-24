@@ -1,14 +1,16 @@
-local isTransparent = true
-if ( os.getenv("MYSYSTEM") == "wslLaptop" or os.getenv("MYSYSTEM") == "wslDesktop" or os.getenv("MYSYSTEM") == "wslMaerz") then
-	isTransparent = false
+local isTransparent = false
+if os.getenv("MYSYSTEM") == "Laptop" or os.getenv("MYSYSTEM") == "Desktop" then
+	isTransparent = true
 end
 return {
 	{ -- colorscheme
-		'catppuccin/nvim', name='catppuccin', priority=1000,
+		"catppuccin/nvim",
+		name = "catppuccin",
+		priority = 1000,
 		init = function()
 			local mocha = require("catppuccin.palettes").get_palette("mocha")
-			require('catppuccin').setup({
-				flavour = 'auto',
+			require("catppuccin").setup({
+				flavour = "auto",
 				background = {
 					light = "latte",
 					-- dark = "macchiato",
@@ -23,7 +25,7 @@ return {
 					end,
 				},
 			})
-			vim.cmd.colorscheme 'catppuccin'
-		end
+			vim.cmd.colorscheme("catppuccin")
+		end,
 	},
 }
