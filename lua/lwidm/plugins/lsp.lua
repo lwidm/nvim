@@ -200,6 +200,7 @@ return {
 	-- null_ls
 	{
 		"jose-elias-alvarez/null-ls.nvim",
+		dependencies = { "nvim-lua/plenary.nvim" },
 		ft = { "python" },
 		config = function()
 			local null_ls = require("null-ls")
