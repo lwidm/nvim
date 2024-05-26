@@ -3,14 +3,15 @@ local transparent_systems = {
 	"Laptop",
 	"Desktop",
 	"wslDesktop",
+	"WinDesktop",
 }
 local current_system = os.getenv("MYSYSTEM")
 
 for _, system in ipairs(transparent_systems) do
-    if system == current_system then
-        isTransparent = true
-        break
-    end
+	if system == current_system then
+		isTransparent = true
+		break
+	end
 end
 
 return {
