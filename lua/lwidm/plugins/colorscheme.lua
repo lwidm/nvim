@@ -1,7 +1,18 @@
 local isTransparent = false
-if os.getenv("MYSYSTEM") == "Laptop" or os.getenv("MYSYSTEM") == "Desktop" then
-	isTransparent = true
+local transparent_systems = {
+	"Laptop",
+	"Desktop",
+	"wslDesktop",
+}
+local current_system = os.getenv("MYSYSTEM")
+
+for _, system in ipairs(transparent_systems) do
+    if system == current_system then
+        isTransparent = true
+        break
+    end
 end
+
 return {
 	{ -- colorscheme
 		"catppuccin/nvim",
