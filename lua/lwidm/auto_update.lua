@@ -1,55 +1,33 @@
 -- lua/lwidm/auto_update.lua
 
-local function git_push(git_push_cmd)
-	local handle = io.popen(git_push_cmd)
-	if handle then
-		local git_push_result = handle:read("*a")
-		handle:close()
-
-		if git_push_result ~= nil then
-			print(git_push_result)
-		else
-			error("Error occurred while pushing changes.")
-		end
-	else
-		error("failed to execute git push command")
-	end
-end
-
-local function git_sync(git_pull_cmd, git_push_cmd)
-	local handle = io.popen(git_pull_cmd)
-	if handle then
-		local git_pull_result = handle:read("*a")
-		handle:close()
-		print(git_pull_result)
-
-		if git_pull_result ~= nil then
-			print(git_pull_result)
-
-			-- Push changes
-			git_push(git_push_cmd)
-		else
-			error("Error occurred while pulling latest changes.")
-		end
-	else
-		error("Failed to execute git pull command")
-	end
+local function execute_command(command)
+	local handle = io.popen(command)
+	assert(handle, "Failed to execute command: " .. command)
+	local result = handle:read("*a")
+	handle:close()
+	return result
 end
 
 local function git_check_unstaged_untracked(git_status_cmd)
-	local handle = io.popen(git_status_cmd)
-	if handle then
-		local git_status_result = handle:read("*a")
-		handle:close()
-		if git_status_result ~= "" then
-			print("There are unstaged changes or untracked files. Config didn't autoupdate.")
-			return false
-		end
-		return true
-	else
-		error("Failed to execute git status command.")
+	print("Checking status of local git repo ...")
+	local status = execute_command(git_status_cmd)
+	if status ~= "" then
+		print("There are unstaged changes or untracked files. Config didn't autoupdate.")
 		return false
 	end
+	return true
+end
+
+local function git_pull(git_pull_cmd)
+	print("Pulling from GitHub repo ...")
+	local pull_result = execute_command(git_pull_cmd)
+	print(pull_result)
+end
+
+local function git_push(git_push_cmd)
+	print("Pushing to GitHub repo ...")
+	local push_result = execute_command(git_push_cmd)
+	print(push_result)
 end
 
 local function update_config()
@@ -64,7 +42,9 @@ local function update_config()
 	end
 
 	-- Sync with github repo if no unstaged changes or untracked files
-	git_sync(git_pull_cmd, git_push_cmd)
+	git_pull(git_pull_cmd)
+	git_push(git_push_cmd)
+	print("Config updated successfully.")
 end
 
 return update_config
