@@ -16,7 +16,6 @@ return {
 				rust_analyzer = {}, -- rust
 				lua_ls = {}, -- lua
 				cmake = {}, -- cmake
-				nil_ls = {}, -- nix
 				pyright = {}, -- python
 				debugpy = {}, -- python debugging
 				-- jsonls = {}, -- json
@@ -29,13 +28,22 @@ return {
 			local format_servers = {
 				"stylua", -- lua
 				"clang-format", -- c and c++
-				"nixpkgs-fmt", -- NixOs
 				"black", -- python
 			}
 			local other_tools = {
 				"mypy", -- python: static typing
 				"ruff", -- python: linter and formatter
 			}
+
+			if vim.g.os_name == "Linux" then
+				vim.list_extend(servers, {
+					nil_ls = {}, -- nix
+				})
+				vim.list_extend(format_servers, {
+					"nixpkgs-fmt", -- NixOs
+				})
+			end
+
 			local ensure_installed = vim.tbl_keys(servers or {})
 			vim.list_extend(ensure_installed, format_servers)
 			vim.list_extend(ensure_installed, other_tools)
