@@ -1,21 +1,43 @@
 return {
+
+	{
+		"folke/lsp-colors.nvim",
+		config = function()
+			require("lsp-colors").setup({
+				Error = "#db4b4b",
+				Warning = "#e0af68",
+				Information = "#0db9d7",
+				Hint = "#10B981",
+			})
+		end,
+	},
 	{
 		"neovim/nvim-lspconfig",
 		dependencies = {
 			"williamboman/mason.nvim",
 			"WhoIsSethDaniel/mason-tool-installer.nvim",
 			"williamboman/mason-lspconfig.nvim",
-			{ "j-hui/fidget.nvim", opts = {} },
+			{ "j-hui/fidget.nvim", opts = {
+				winblend = 100,
+			} },
+			"folke/lsp-colors.nvim",
 		},
 
 		config = function()
+			-- local signs = { Error = "❌", Warn = "⚠️", Hint = "💡", Info = "ℹ️" }
+			-- for type, icon in pairs(signs) do
+			-- 	local hl = "DiagnosticSign" .. type
+			-- 	vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
+			-- end
+
 			local capabilities = vim.lsp.protocol.make_client_capabilities()
 			capabilities = vim.tbl_deep_extend("force", capabilities, require("cmp_nvim_lsp").default_capabilities())
 			local servers = {
 				clangd = {}, -- c, cpp
+				codelldb = {}, -- c, cpp debugger
 				rust_analyzer = {}, -- rust
 				lua_ls = {}, -- lua
-				cmake = {}, -- cmake
+				cmakelang = {}, -- cmake
 				pyright = {}, -- python
 				debugpy = {}, -- python debugging
 				-- jsonls = {}, -- json
@@ -181,7 +203,8 @@ return {
 			notify_on_error = true,
 			format_on_save = function(bufnr)
 				-- Disable "format_on_save lsp_fallback" for languages thst don't have a well standardized coding style
-				local disable_filetypes = { c = true, cpp = true }
+				-- local disable_filetypes = { c = true, cpp = true }
+				local disable_filetypes = { c = true }
 				return {
 					timeout_ms = 500,
 					lsp_fallback = not disable_filetypes[vim.bo[bufnr].filetype],
@@ -189,10 +212,11 @@ return {
 			end,
 			formatters_by_ft = {
 				lua = { "stylua" },
-				c = { "clang-format -style=Google" },
-				cpp = { "clang-format -style=Google" },
+				c = { "clang-format" },
+				cpp = { "clang-format" },
 				python = { "black" },
 				nix = { "nixpkgs-fmt" },
+				cmake = { "cmake_format" },
 			},
 		},
 	},
@@ -201,13 +225,14 @@ return {
 	{
 		"jose-elias-alvarez/null-ls.nvim",
 		dependencies = { "nvim-lua/plenary.nvim" },
-		ft = { "python" },
+		event = "VeryLazy",
 		config = function()
 			local null_ls = require("null-ls")
 			null_ls.setup({
 				sources = {
 					null_ls.builtins.diagnostics.mypy,
 					null_ls.builtins.diagnostics.ruff,
+					-- null_ls.builtins.formatting.clang_format
 				},
 			})
 		end,
