@@ -36,7 +36,7 @@ end
 local function update_nvim_config()
 	if is_nvim_config_clean() then
 		if git_pull_nvim_config() then
-			vim.notify(("Successfully pulled the latest changes.", vim.log.levels.INFO)
+			vim.notify("Successfully pulled the latest changes.", vim.log.levels.INFO)
 			if git_push_nvim_config() then
 				vim.notify("Successfully pushed the latest changes.", vim.log.levels.INFO)
 			else
