@@ -5,6 +5,11 @@ vim.g.maplocalleader = ' '
 -- Set to true if you have a Nerd Font installed
 vim.g.have_nerd_font = true
 
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+
+local get_os_name = require("lwidm.get_os_name")
+vim.g.os_name = get_os_name()
 vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.mouse = 'a'
@@ -32,3 +37,5 @@ require("lwidm.misc")
 require("lwidm.noArrowKeys")
 require("lwidm.lazy")
 require("lwidm.remap")
+
+require("lwidm.auto_update")()

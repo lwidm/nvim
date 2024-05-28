@@ -2,7 +2,7 @@
 
 if true then return {
 	{ 'christoomey/vim-tmux-navigator', opts = {}, 
-		event = 'Lazy',
+		event = "VeryLazy",
 		cmd = {
 			"TmuxNavigateLeft",
 			"TmuxNavigateDown",
@@ -11,11 +11,11 @@ if true then return {
 			"TmuxNavigatePrevious",
 		},
 		keys = {
-			{'n', '<c-h>', '<cmd><C-U>TmuxNavigateLeft<cr>' },
-			{'n', '<c-j>', '<cmd><C-U>TmuxNavigateDown<cr>' },
-			{'n', '<c-k>', '<cmd><C-U>TmuxNavigateUp<cr>' },
-			{'n', '<c-l>', '<cmd><C-U>TmuxNavigateRight<cr>' },
-			{'n', '<c-\\>', '<cmd><C-U>TmuxNavigatePrevious<cr>' },
+			{'<c-h>', '<cmd><C-U>TmuxNavigateLeft<cr>', mode = 'n' },
+			{'<c-j>', '<cmd><C-U>TmuxNavigateDown<cr>', mode = 'n' },
+			{'<c-k>', '<cmd><C-U>TmuxNavigateUp<cr>', mode = 'n' },
+			{'<c-l>', '<cmd><C-U>TmuxNavigateRight<cr>', mode = 'n' },
+			{'<c-\\>', '<cmd><C-U>TmuxNavigatePrevious<cr>', mode = 'n' },
 		},
 --		keys = {
 --			{'n', '<c-h>', '<cmd><C-U>TmuxNavigateLeft<cr>', { desc = 'Move focus to the left window' } },
