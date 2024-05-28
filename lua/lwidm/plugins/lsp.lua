@@ -1,26 +1,26 @@
 return {
 
+	-- figet
 	{
-		"folke/lsp-colors.nvim",
+		"j-hui/fidget.nvim",
 		config = function()
-			require("lsp-colors").setup({
-				Error = "#db4b4b",
-				Warning = "#e0af68",
-				Information = "#0db9d7",
-				Hint = "#10B981",
+			require("fidget").setup({
+				notification = {
+					window = {
+						winblend = 0, -- Background color opacity in the notification window
+					},
+				},
 			})
 		end,
 	},
+
 	{
 		"neovim/nvim-lspconfig",
 		dependencies = {
 			"williamboman/mason.nvim",
 			"WhoIsSethDaniel/mason-tool-installer.nvim",
 			"williamboman/mason-lspconfig.nvim",
-			{ "j-hui/fidget.nvim", opts = {
-				winblend = 100,
-			} },
-			"folke/lsp-colors.nvim",
+			"j-hui/fidget.nvim",
 		},
 
 		config = function()
