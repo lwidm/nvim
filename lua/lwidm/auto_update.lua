@@ -2,10 +2,6 @@
 
 local Job = require("plenary.job")
 
-local function notify(message, level)
-	vim.notify(message, level)
-end
-
 local function run_git_command(args)
 	local success = false
 	local job = Job:new({
@@ -40,17 +36,17 @@ end
 local function update_nvim_config()
 	if is_nvim_config_clean() then
 		if git_pull_nvim_config() then
-			notify("Successfully pulled the latest changes.", vim.log.levels.INFO)
+			vim.notify(("Successfully pulled the latest changes.", vim.log.levels.INFO)
 			if git_push_nvim_config() then
-				notify("Successfully pushed the latest changes.", vim.log.levels.INFO)
+				vim.notify("Successfully pushed the latest changes.", vim.log.levels.INFO)
 			else
-				notify("Failed to push changes.", vim.log.levels.ERROR)
+				vim.notifiy("Failed to push changes.", vim.log.levels.ERROR)
 			end
 		else
-			notify("Failed to pull changes.", vim.log.levels.ERROR)
+			vim.notify("Failed to pull changes.", vim.log.levels.ERROR)
 		end
 	else
-		notify(
+		vim.notify(
 			"Couldn't update neovim config. Unstaged or untracked files present. Commit your changes first.",
 			vim.log.levels.WARN
 		)
