@@ -36,7 +36,7 @@ return {
 				desc = "navigate to 2nd file in harpoon",
 			},
 			{
-				"<C-n>",
+				"<C-m>",
 				function()
 					require("harpoon.ui").nav_file(3)
 				end,

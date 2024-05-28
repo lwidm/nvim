@@ -82,9 +82,13 @@ return {
 		config = function(_, opts)
 			local path = "~/.local/share/nvim/mason/packages/debugpy/venv/bin/python"
 			if vim.loop.os_uname().sysname == "Windows_NT" then
-				path = [[~\AppData\Local\nvim-data\mason\packages\debugpy\venv\Scripts\python]]
+				path = "~/AppData/Local/nvim-data/mason/packages/debugpy/venv/Scripts/python.exe"
 			end
-			-- TODO: make sure this works for wsl and linux as well
+
+			-- Expand the path if it contains the home shortcut `~`
+			path = vim.fn.expand(path)
+
+			-- Setup dap-python with the specified path
 			require("dap-python").setup(path)
 		end,
 		keys = {
