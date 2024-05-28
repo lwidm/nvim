@@ -48,6 +48,7 @@ end
 local function update_nvim_config()
 	if is_nvim_config_clean() then
 		local success, message = git_pull_nvim_config()
+		print(message)
 		if success then
 			notify(message, vim.log.levels.INFO)
 			git_push_nvim_config()
