@@ -12,9 +12,9 @@ local function run_git_command(args, success_message, failure_message)
 		cwd = vim.fn.stdpath("config"),
 		on_exit = function(_, return_val)
 			if return_val == 0 then
-				notify(success_message, vim.log.levels.INFO)
+				return true, success_message
 			else
-				notify(failure_message, vim.log.levels.ERROR)
+				return false, failure_message
 			end
 		end,
 	}):start()
@@ -30,17 +30,30 @@ local function is_nvim_config_clean()
 end
 
 local function git_pull_nvim_config()
-	run_git_command({ "pull", "origin", "main" }, "Successfully pulled the latest changes.", "Failed to pull changes.")
+	return run_git_command(
+		{ "pull", "origin", "main" },
+		"Successfully pulled the latest changes.",
+		"Failed to pull changes."
+	)
 end
 
 local function git_push_nvim_config()
-	run_git_command({ "push", "origin", "main" }, "Successfully pushed the latest changes.", "Failed to push changes.")
+	return run_git_command(
+		{ "push", "origin", "main" },
+		"Successfully pushed the latest changes.",
+		"Failed to push changes."
+	)
 end
 
 local function update_nvim_config()
 	if is_nvim_config_clean() then
-		git_pull_nvim_config()
-		git_push_nvim_config()
+		local success, message = git_pull_nvim_config()
+		if success then
+			notify(message, vim.log.levels.INFO)
+			git_push_nvim_config()
+		else
+			notify(message, vim.log.levels.ERROR)
+		end
 	else
 		notify(
 			"Couldn't update neovim config. Unstaged or untracked files present. Commit your changes first.",
