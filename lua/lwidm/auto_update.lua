@@ -5,16 +5,16 @@ local function notify(message, level)
 	vim.notify(message, level)
 end
 
-local function run_git_command(args, success_message, failure_message)
+local function run_git_command(args)
 	Job:new({
 		command = "git",
 		args = args,
 		cwd = vim.fn.stdpath("config"),
 		on_exit = function(_, return_val)
 			if return_val == 0 then
-				return true, success_message
+				return true
 			else
-				return false, failure_message
+				return false
 			end
 		end,
 	}):start()
@@ -30,30 +30,24 @@ local function is_nvim_config_clean()
 end
 
 local function git_pull_nvim_config()
-	return run_git_command(
-		{ "pull", "origin", "main" },
-		"Successfully pulled the latest changes.",
-		"Failed to pull changes."
-	)
+	return run_git_command({ "pull", "origin", "main" })
 end
 
 local function git_push_nvim_config()
-	return run_git_command(
-		{ "push", "origin", "main" },
-		"Successfully pushed the latest changes.",
-		"Failed to push changes."
-	)
+	return run_git_command({ "push", "origin", "main" })
 end
 
 local function update_nvim_config()
 	if is_nvim_config_clean() then
-		local success, message = git_pull_nvim_config()
-		print(message)
-		if success then
-			notify(message, vim.log.levels.INFO)
-			git_push_nvim_config()
+		if git_pull_nvim_config() then
+			notify("Successfully pulled the latest changes.", vim.log.levels.INFO)
+			if git_push_nvim_config() then
+				notify("Successfully pushed the latest changes.")
+			else
+				notify("Failed to push changes.")
+			end
 		else
-			notify(message, vim.log.levels.ERROR)
+			notify("Failed to pull changes.", vim.log.levels.ERROR)
 		end
 	else
 		notify(
