@@ -1,4 +1,6 @@
-return {
+-- lua/lwidm/plugins/harpoon
+
+if true then return {
 	-- harpoon
 	{
 		"ThePrimeagen/harpoon",
@@ -20,7 +22,7 @@ return {
 				desc = "Toggle harpoon quick menu",
 			},
 			{
-				"<C-h>",
+				"<C-g>",
 				function()
 					require("harpoon.ui").nav_file(1)
 				end,
@@ -54,3 +56,6 @@ return {
 		},
 	},
 }
+else
+	return {}
+end

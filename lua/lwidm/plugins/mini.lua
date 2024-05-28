@@ -1,4 +1,6 @@
-return {
+-- lua/lwidm/plugins/mini.lua
+
+if true then return {
 	-- Collection of various small independant plugins/modules
 	{ 'echasnovski/mini.nvim',
 		config = function()
@@ -26,3 +28,6 @@ return {
 		end
 	},
 }
+else
+	return {}
+end

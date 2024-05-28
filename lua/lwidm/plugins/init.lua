@@ -1,4 +1,6 @@
-return {
+-- lua/lwidm/plugins/init.lua
+
+if true then return {
 
 	{ "nvim-lua/plenary.nvim" },
 
@@ -41,3 +43,6 @@ return {
 	-- vim-visual-multi
 	{ "mg979/vim-visual-multi" },
 }
+else
+	return {}
+end

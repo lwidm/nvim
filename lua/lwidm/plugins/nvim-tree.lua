@@ -1,6 +1,6 @@
 -- lua/lwidm/plugins/nvim-tree.lua
 
-return {
+if true then return {
 	-- nvim-tree
 	{
 		"nvim-tree/nvim-tree.lua",
@@ -22,3 +22,6 @@ return {
 		end,
 	},
 }
+else
+	return {}
+end

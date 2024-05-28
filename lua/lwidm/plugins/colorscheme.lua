@@ -15,7 +15,7 @@ for _, system in ipairs(transparent_systems) do
 	end
 end
 
-return {
+if true then return {
 	{ -- colorscheme
 		"catppuccin/nvim",
 		name = "catppuccin",
@@ -46,3 +46,6 @@ return {
 		end,
 	},
 }
+else
+	return {}
+end

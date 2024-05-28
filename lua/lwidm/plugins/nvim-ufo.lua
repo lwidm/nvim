@@ -1,6 +1,6 @@
 -- lua/lwidm/plugins/nvim-ufo.lua
 
-return {
+if true then return {
 	{ "kevinhwang91/promise-async" },
 	{
 		"kevinhwang91/nvim-ufo",
@@ -34,3 +34,6 @@ return {
 		end,
 	},
 }
+else
+	return {}
+end

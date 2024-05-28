@@ -1,4 +1,6 @@
-return {
+-- lua/lwidm/plugins/todo-comments.lua
+
+if false then return {
 	-- Highlight todo, notes, etc in comments
 	{ 'folke/todo-comments.nvim',
 		event = 'VimEnter',
@@ -77,6 +79,9 @@ return {
 	},
 
 }
+else
+	return {}
+end
 -- PERF: fully optimised
 -- HACK: hmm, this looks a bit funny
 -- TODO: what else

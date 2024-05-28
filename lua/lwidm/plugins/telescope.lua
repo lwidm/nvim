@@ -1,4 +1,6 @@
-return {
+-- lua/lwidm/plugins/telescope.lua
+
+if true then return {
 	{ -- Fuzzy Finder (files, lsp, etc)
 		"nvim-telescope/telescope.nvim",
 		event = "VimEnter",
@@ -65,3 +67,6 @@ return {
 		end,
 	},
 }
+else
+	return {}
+end

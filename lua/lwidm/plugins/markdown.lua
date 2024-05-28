@@ -1,4 +1,6 @@
-return {
+-- lua/lwidm/plugins/markdown.lua
+
+if true then return {
 	{
 		"iamcco/markdown-preview.nvim",
 		cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
@@ -9,3 +11,6 @@ return {
 		ft = { "markdown" },
 	},
 }
+else
+	return {}
+end

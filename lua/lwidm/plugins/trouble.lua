@@ -1,4 +1,6 @@
-return {
+-- lua/lwidm/plugins/trouble.lua
+
+if true then return {
 	{
 		"folke/trouble.nvim",
 		dependencies = {
@@ -22,3 +24,6 @@ return {
 		end,
 	},
 }
+else
+	return {}
+end

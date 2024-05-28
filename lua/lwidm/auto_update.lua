@@ -1,4 +1,5 @@
 -- lua/lwidm/auto_update.lua
+
 local Job = require("plenary.job")
 
 local function notify(message, level)

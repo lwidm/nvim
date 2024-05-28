@@ -1,6 +1,6 @@
-return {
+if true then return {
 	{ -- Useful plugin to show you pending keybinds.
-		"folke/which-key.nvim",
+		"true /which-key.nvim",
 		event = "VimEnter",
 		config = function()
 			require("which-key").setup()
@@ -19,3 +19,5 @@ return {
 		end,
 	},
 }
+else return {}
+end

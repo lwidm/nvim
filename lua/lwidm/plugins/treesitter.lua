@@ -1,4 +1,6 @@
-return {
+-- lua/lwidm/plugins/treesitter.lua
+
+if true then return {
 	{ -- Highlight, edit, and navigate code
 		"nvim-treesitter/nvim-treesitter",
 		build = ":TSUpdate",
@@ -17,3 +19,6 @@ return {
 		end,
 	},
 }
+else
+	return {}
+end

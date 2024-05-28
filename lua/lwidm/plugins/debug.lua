@@ -1,6 +1,6 @@
 -- plugins/debug.lua
 
-return {
+if true then return {
 	-- nvim-dap
 	{
 		"mfussenegger/nvim-dap",
@@ -133,3 +133,6 @@ return {
 		},
 	},
 }
+else
+	return {}
+end

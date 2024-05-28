@@ -1,4 +1,6 @@
-return {
+-- lua/lwidm/plugins/lsp.lua
+
+if true then return {
 
 	-- figet
 	{
@@ -238,3 +240,6 @@ return {
 		end,
 	},
 }
+else
+	return {}
+end

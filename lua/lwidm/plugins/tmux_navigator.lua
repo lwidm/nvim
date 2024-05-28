@@ -1,6 +1,8 @@
-return {
+-- lua/lwidm/plugins/tmux_navigator
+
+if true then return {
 	{ 'christoomey/vim-tmux-navigator', opts = {}, 
-		event = 'VeryLazy',
+		event = 'Lazy',
 		cmd = {
 			"TmuxNavigateLeft",
 			"TmuxNavigateDown",
@@ -27,3 +29,6 @@ return {
 		end
 	},
 }
+else
+	return {}
+end
