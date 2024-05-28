@@ -16,8 +16,7 @@ local function run_git_command(args)
 		end,
 	})
 	job:sync()
-	print(success)
-	return success
+	return (success == 0)
 end
 
 local function is_nvim_config_clean()
