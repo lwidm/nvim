@@ -6,18 +6,18 @@ local function notify(message, level)
 end
 
 local function run_git_command(args)
-	Job:new({
+	local success = false
+	local job = Job:new({
 		command = "git",
 		args = args,
 		cwd = vim.fn.stdpath("config"),
-		on_exit = function(_, return_val)
-			if return_val == 0 then
-				return true
-			else
-				return false
-			end
+		on_exit = function(j, return_val)
+			success = return_val
 		end,
-	}):start()
+	})
+	job:sync()
+	print(success)
+	return success
 end
 
 local function is_nvim_config_clean()
