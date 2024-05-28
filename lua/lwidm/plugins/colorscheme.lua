@@ -37,6 +37,10 @@ return {
 						}
 					end,
 				},
+				integrations = {
+					harpoon = true,
+					fidget = true,
+				},
 			})
 			vim.cmd.colorscheme("catppuccin")
 		end,
