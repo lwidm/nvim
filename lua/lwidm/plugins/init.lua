@@ -32,4 +32,6 @@ return {
 
 	-- nvim-web-devicons
 	{ "nvim-tree/nvim-web-devicons", lazy = true },
+
+	{ "preservim/tagbar" },
 }
