@@ -32,10 +32,12 @@ end
 
 local function update_config()
 	local config_path = vim.fn.stdpath("config")
-	local git_status_cmd = "cd '" .. config_path .. "' && git status --porcelain"
-	local git_pull_cmd = "cd '" .. config_path .. "' && git pull"
-	local git_push_cmd = "cd '" .. config_path .. "' && git push"
+	local git_status_cmd = "cd " .. config_path .. " && git status --porcelain"
+	local git_pull_cmd = "cd " .. config_path .. " && git pull"
+	local git_push_cmd = "cd " .. config_path .. " && git push"
 	print(git_status_cmd)
+	print(git_pull_cmd)
+	print(git_push_cmd)
 
 	-- Check for unstaged changes
 	if not git_check_unstaged_untracked(git_status_cmd) then
@@ -48,4 +50,9 @@ local function update_config()
 	print("Config updated successfully.")
 end
 
-return update_config
+-- TODO : this doesnt work yet
+local function dummy()
+	print("autoupdating doesn't work yet")
+end
+
+return dummy
