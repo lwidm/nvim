@@ -1,4 +1,7 @@
 return {
+
+	{ "nvim-lua/plenary.nvim" },
+
 	-- Detect tabstop and shiftwidth automatically
 	"tpope/vim-sleuth",
 
