@@ -51,6 +51,10 @@ local plugin = {
 			vim.keymap.set("n", "<leader>/", function()
 				builtin.current_buffer_fuzzy_find(require("telescope.themes").get_dropdown({
 					previewer = false,
+					layout_config = {
+						width = 0.75,
+						height = 0.66,
+					},
 				}))
 			end, { desc = "[/] Fuzzily search in current buffer" })
 
