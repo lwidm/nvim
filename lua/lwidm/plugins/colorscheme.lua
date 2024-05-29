@@ -4,6 +4,8 @@ local transparent_systems = {
 	"Desktop",
 	"wslDesktop",
 	"winDesktop",
+	"wslLaptop",
+	"winLaptop",
 	"Maerz",
 }
 local current_system = os.getenv("MYSYSTEM")
