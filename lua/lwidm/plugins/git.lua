@@ -68,9 +68,6 @@ local plugin = {
 				gs.toggle_current_line_blame,
 				{ desc = "[G]it [T]oggle current line blame" }
 			)
-
-			-- Text object
-			vim.keymap.set({ "o", "x" }, "ih", ":<C-U>Gitsigns select_hunk<CR>")
 		end,
 	},
 }
