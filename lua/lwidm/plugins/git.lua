@@ -16,8 +16,6 @@ local plugin = {
 				{ desc = "([G]it) [D]iff [G]et //3 (i.e. feature)" }
 			)
 			vim.keymap.set("n", "<leader>gdp1", ":diffput //1<CR>", { desc = "([G]it) [D]iff [P]ut //1" })
-
-			vim.keymap.set("n", "<leader>gs", ":Git status<CR>", { desc = "[G]it [S]tatus" })
 		end,
 	},
 
@@ -25,7 +23,8 @@ local plugin = {
 	{
 		"lewis6991/gitsigns.nvim",
 		config = function()
-			require("gitsigns").setup({
+			local gs = require("gitsigns")
+			gs.setup({
 				signs = {
 					add = { text = "+" },
 					change = { text = "~" },
@@ -35,11 +34,37 @@ local plugin = {
 				},
 			})
 
-			vim.keymap.set("n", "<leader>gp", ":Gitsigns preview_hunk<CR>", { desc = "[G]it [P]eview hunk" })
+			vim.keymap.set("n", "]c", function()
+				if vim.wo.diff then
+					return "]c"
+				end
+				vim.schedule(function()
+					gs.next_hunk()
+				end)
+				return "<Ignore>"
+			end, { expr = true, desc = "go to next hunk (git changes)" })
+			vim.keymap.set("n", "[c", function()
+				if vim.wo.diff then
+					return "[c"
+				end
+				vim.schedule(function()
+					gs.prev_hunk()
+				end)
+				vim.keymap.set("n", "<leader>gp", ":Gitsigns preview_hunk<CR>", { desc = "[G]it [P]eview hunk" })
+				return "<Ignore>"
+			end, { expr = true, desc = "go to previous hunk (git changes)" })
+
+			-- Actions
+			vim.keymap.set({ "n", "v" }, "<leader>gs", ":Gitsigns stage_hunk<CR>", { desc = "[G]it [S]tage hunk" })
+			vim.keymap.set("n", "<leader>gu", gs.undo_stage_hunk, { desc = "[G]it [U]ndo stage hunk" })
+			vim.keymap.set("n", "<leader>gS", gs.stage_buffer, { desc = "[G]it [S]tage buffer" })
+			vim.keymap.set({ "n", "v" }, "<leader>gr", ":Gitsigns reset_hunk<CR>", { desc = "[G]it [R]eset hunk" })
+			vim.keymap.set("n", "<leader>gR", gs.reset_buffer, { desc = "[G]it [R]eset buffer" })
+			vim.keymap.set("n", "<leader>gp", gs.preview_hunk, { desc = "[G]it [p]review hunk" })
 			vim.keymap.set(
 				"n",
 				"<leader>gt",
-				":Gitsigns toggle_current_line_blame<CR>",
+				gs.toggle_current_line_blame,
 				{ desc = "[G]it [T]oggle current line blame" }
 			)
 		end,
