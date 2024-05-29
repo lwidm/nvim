@@ -16,6 +16,7 @@ local plugin = {
 				{ desc = "([G]it) [D]iff [G]et //3 (i.e. feature)" }
 			)
 			vim.keymap.set("n", "<leader>gdp1", ":diffput //1<CR>", { desc = "([G]it) [D]iff [P]ut //1" })
+			vim.keymap.set("n", "<leader>gw", ":Gwrite", { desc = "[G]it [W]rite (add file in current buffer)" })
 		end,
 	},
 
@@ -67,6 +68,9 @@ local plugin = {
 				gs.toggle_current_line_blame,
 				{ desc = "[G]it [T]oggle current line blame" }
 			)
+
+			-- Text object
+			vim.keymap.set({ "o", "x" }, "ih", ":<C-U>Gitsigns select_hunk<CR>")
 		end,
 	},
 }
