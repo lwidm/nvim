@@ -16,6 +16,8 @@ local plugin = {
 				{ desc = "([G]it) [D]iff [G]et //3 (i.e. feature)" }
 			)
 			vim.keymap.set("n", "<leader>gdp1", ":diffput //1<CR>", { desc = "([G]it) [D]iff [P]ut //1" })
+
+			vim.keymap.set("n", "<leader>gs", ":Git status<CR>", { desc = "[G]it [S]tatus" })
 		end,
 	},
 
