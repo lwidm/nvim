@@ -11,9 +11,6 @@ if true then
 		-- "gc" to comment visual regions/lines
 		{ "numToStr/Comment.nvim", opts = {} },
 
-		-- Use :Git for git commands in neovim
-		"tpope/vim-fugitive",
-
 		-- show undo history using :UndotreeToggle
 		{
 			"mbbill/undotree",
