@@ -1,6 +1,7 @@
 -- lua/lwidm/plugins/markdown.lua
 
-if true then return {
+local enabled = true
+local plugin = {
 	{
 		"iamcco/markdown-preview.nvim",
 		cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
@@ -11,6 +12,8 @@ if true then return {
 		ft = { "markdown" },
 	},
 }
+if enabled then
+	return plugin
 else
 	return {}
 end

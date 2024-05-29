@@ -1,6 +1,7 @@
 -- lua/lwidm/plugins/treesitter.lua
 
-if true then return {
+local enabled = true
+local plugin = {
 	{ -- Highlight, edit, and navigate code
 		"nvim-treesitter/nvim-treesitter",
 		build = ":TSUpdate",
@@ -19,6 +20,8 @@ if true then return {
 		end,
 	},
 }
+if enabled then
+	return plugin
 else
 	return {}
 end

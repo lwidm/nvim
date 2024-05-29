@@ -1,11 +1,17 @@
 -- plugins/debug.lua
 
-if true then return {
+local enabled = true
+local plugin = {
 	-- nvim-dap
 	{
 		"mfussenegger/nvim-dap",
 		keys = {
-			{ "<leader>db", "<cmd> DapToggleBreakpoint <CR>", mode = "n", desc = "[D]ebugging: Toggle [B]reakpoint" },
+			{
+				"<leader>db",
+				"<cmd> DapToggleBreakpoint <CR>",
+				mode = "n",
+				desc = "[D]ebugging: Toggle [B]reakpoint",
+			},
 			{
 				"<leader>drc",
 				function()
@@ -133,6 +139,8 @@ if true then return {
 		},
 	},
 }
+if enabled then
+	return plugin
 else
 	return {}
 end

@@ -1,6 +1,7 @@
 -- lua/lwidm/plugins/trouble.lua
 
-if true then return {
+local enabled = true
+local plugin = {
 	{
 		"folke/trouble.nvim",
 		dependencies = {
@@ -24,6 +25,8 @@ if true then return {
 		end,
 	},
 }
+if enabled then
+	return plugin
 else
 	return {}
 end

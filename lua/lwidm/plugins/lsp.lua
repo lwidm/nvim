@@ -1,6 +1,7 @@
 -- lua/lwidm/plugins/lsp.lua
 
-if true then return {
+local enabled = true
+local plugin = {
 
 	-- figet
 	{
@@ -240,6 +241,8 @@ if true then return {
 		end,
 	},
 }
+if enabled then
+	return plugin
 else
 	return {}
 end

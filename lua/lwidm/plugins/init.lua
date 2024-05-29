@@ -1,32 +1,34 @@
 -- lua/lwidm/plugins/init.lua
 
-if true then
-	return {
+local enabled = true
+local plugin = {
 
-		{ "nvim-lua/plenary.nvim" },
+	{ "nvim-lua/plenary.nvim" },
 
-		-- Detect tabstop and shiftwidth automatically
-		"tpope/vim-sleuth",
+	-- Detect tabstop and shiftwidth automatically
+	"tpope/vim-sleuth",
 
-		-- "gc" to comment visual regions/lines
-		{ "numToStr/Comment.nvim", opts = {} },
+	-- "gc" to comment visual regions/lines
+	{ "numToStr/Comment.nvim", opts = {} },
 
-		-- show undo history using :UndotreeToggle
-		{
-			"mbbill/undotree",
-			config = function()
-				vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle)
-			end,
-		},
+	-- show undo history using :UndotreeToggle
+	{
+		"mbbill/undotree",
+		config = function()
+			vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle)
+		end,
+	},
 
-		-- nvim-web-devicons
-		{ "nvim-tree/nvim-web-devicons", lazy = true },
+	-- nvim-web-devicons
+	{ "nvim-tree/nvim-web-devicons", lazy = true },
 
-		{ "preservim/tagbar" },
+	{ "preservim/tagbar" },
 
-		-- vim-visual-multi
-		{ "mg979/vim-visual-multi" },
-	}
+	-- vim-visual-multi
+	{ "mg979/vim-visual-multi" },
+}
+if enabled then
+	return plugin
 else
 	return {}
 end

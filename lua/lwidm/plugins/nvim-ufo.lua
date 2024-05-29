@@ -1,6 +1,7 @@
 -- lua/lwidm/plugins/nvim-ufo.lua
 
-if true then return {
+local enabled = true
+local plugin = {
 	{ "kevinhwang91/promise-async" },
 	{
 		"kevinhwang91/nvim-ufo",
@@ -34,6 +35,8 @@ if true then return {
 		end,
 	},
 }
+if enabled then
+	return plugin
 else
 	return {}
 end

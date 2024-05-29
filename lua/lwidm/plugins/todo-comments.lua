@@ -1,11 +1,13 @@
 -- lua/lwidm/plugins/todo-comments.lua
 
-if false then return {
+local enable = true
+local plugin = {
 	-- Highlight todo, notes, etc in comments
-	{ 'folke/todo-comments.nvim',
-		event = 'VimEnter',
-		dependencies = { 'nvim-lua/plenary.nvim' },
-		opts = { 
+	{
+		"folke/todo-comments.nvim",
+		event = "VimEnter",
+		dependencies = { "nvim-lua/plenary.nvim" },
+		opts = {
 			signs = true, -- show icons in the signs column
 			sign_priority = 8, -- sign priority
 			-- keywords recognized as todo comments
@@ -16,7 +18,7 @@ if false then return {
 					alt = { "FIXME", "BUG", "FIXIT", "ISSUE" }, -- a set of other keywords that all map to this FIX keywords
 					-- signs = false, -- configure signs for some keywords individually
 				},
-				TODO = { hl = 'Todo', icon = " ", color = "info" },
+				TODO = { hl = "Todo", icon = " ", color = "info" },
 				HACK = { icon = " ", color = "warning" },
 				WARN = { icon = " ", color = "warning", alt = { "WARNING", "XXX" } },
 				PERF = { icon = " ", alt = { "OPTIM", "PERFORMANCE", "OPTIMIZE" } },
@@ -43,7 +45,7 @@ if false then return {
 				comments_only = true, -- uses treesitter to match keywords in comments only
 				max_line_len = 400, -- ignore lines longer than this
 				exclude = {}, -- list of file types to exclude highlighting
-				todo = { fg = '#000000' }
+				todo = { fg = "#000000" },
 			},
 			-- list of named colors where we try to extract the guifg from the
 			-- list of highlight groups or use the hex color if hl not found as a fallback
@@ -53,7 +55,7 @@ if false then return {
 				info = { "DiagnosticInfo", "#2563EB" },
 				hint = { "DiagnosticHint", "#10B981" },
 				default = { "Identifier", "#7C3AED" },
-				test = { "Identifier", "#FF00FF" }
+				test = { "Identifier", "#FF00FF" },
 				-- error = { "#DC2626" },
 				-- warning = { "#FBBF24" },
 				-- info = { "#2563EB" },
@@ -75,10 +77,11 @@ if false then return {
 				pattern = [[\b(KEYWORDS):]], -- ripgrep regex
 				-- pattern = [[\b(KEYWORDS)\b]], -- match without the extra colon. You'll likely get false positives
 			},
-		}
+		},
 	},
-
 }
+if enable == true then
+	return plugin
 else
 	return {}
 end
@@ -88,4 +91,4 @@ end
 -- NOTE: adding a note
 -- FIX: this needs fixing
 -- WARNING: ???
--- TEST: 
+-- TEST:

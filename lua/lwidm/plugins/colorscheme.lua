@@ -15,7 +15,7 @@ for _, system in ipairs(transparent_systems) do
 	end
 end
 
-if true then return {
+local plugin = {
 	{ -- colorscheme
 		"catppuccin/nvim",
 		name = "catppuccin",
@@ -46,6 +46,9 @@ if true then return {
 		end,
 	},
 }
+
+if true then
+	return plugin
 else
 	return {}
 end

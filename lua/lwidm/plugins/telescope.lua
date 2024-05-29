@@ -1,6 +1,7 @@
 -- lua/lwidm/plugins/telescope.lua
 
-if true then return {
+local enabled = true
+local plugin = {
 	{ -- Fuzzy Finder (files, lsp, etc)
 		"nvim-telescope/telescope.nvim",
 		event = "VimEnter",
@@ -67,6 +68,8 @@ if true then return {
 		end,
 	},
 }
+if enabled then
+	return plugin
 else
 	return {}
 end

@@ -1,6 +1,7 @@
 -- lua/lwidm/plugins/harpoon
 
-if true then return {
+local enabled = true
+local plugin = {
 	-- harpoon
 	{
 		"ThePrimeagen/harpoon",
@@ -56,6 +57,8 @@ if true then return {
 		},
 	},
 }
+if enabled then
+	return plugin
 else
 	return {}
 end

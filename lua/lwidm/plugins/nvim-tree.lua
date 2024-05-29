@@ -1,6 +1,7 @@
 -- lua/lwidm/plugins/nvim-tree.lua
 
-if true then return {
+local enabled = true
+local plugin = {
 	-- nvim-tree
 	{
 		"nvim-tree/nvim-tree.lua",
@@ -22,6 +23,8 @@ if true then return {
 		end,
 	},
 }
+if enabled then
+	return plugin
 else
 	return {}
 end
