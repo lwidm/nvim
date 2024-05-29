@@ -1,7 +1,29 @@
--- lua/lwidm/lukas/plugins/gitsigns.lua
+-- lua/lwidm/lukas/plugins/git.lua
 
 if true then
 	return {
+
+		-- Use :Git for git commands in neovim
+		{
+			"tpope/vim-fugitive",
+			config = function()
+				vim.keymap.set("n", "<leader>gds", ":Gvdiffsplit<CR>", { desc = "[G]it vertical [D]iff [S]plit" })
+				vim.keymap.set(
+					"n",
+					"<leader>gdg2",
+					":diffget 2<CR>",
+					{ desc = "([G]it) [D]iff [G]et //2 (i.e. target)" }
+				)
+				vim.keymap.set(
+					"n",
+					"<leader>gdg3",
+					":diffget 3<CR>",
+					{ desc = "([G]it) [D]iff [G]et //3 (i.e. feature)" }
+				)
+				vim.keymap.set("n", "<leader>gdp1", ":diffput 1<CR>", { desc = "([G]it) [D]iff [P]ut //1" })
+			end,
+		},
+
 		-- Adds git related signs to the gutter, as well as utilities for managing changes
 		{
 			"lewis6991/gitsigns.nvim",
