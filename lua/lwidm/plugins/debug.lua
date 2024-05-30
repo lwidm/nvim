@@ -39,36 +39,15 @@ local plugin = {
 			require("neodev").setup({
 				library = { plugins = { "nvim-dap-ui" }, types = true },
 			})
-			local dap = require("dap")
 			local dapui = require("dapui")
 			dapui.setup()
-			-- dap.listeners.after.event_initialized["dapui_config"] = function()
-			-- 	dapui.open()
-			-- end
-			-- dap.listeners.before.event_terminated["dapui_config"] = function()
-			-- 	dapui.close()
-			-- end
-			-- dap.listeners.before.envent_exited["dapui_config"] = function()
-			-- 	dapui.close()
-			-- end
+			vim.fn.sign_define('DapBreakpoint', { text="", texthl="DapBreakpoint", linehl="DapBreakpoint", numhl="DapBreakpoint" })
 		end,
 		keys = {
-			{
-				"<leader>duo",
-				function()
-					require("dapui").open()
-				end,
-				mode = "n",
-				desc = "[D]ebugging: [U]i [O]pen",
-			},
-			{
-				"<leader>duc",
-				function()
-					require("dapui").close()
-				end,
-				mode = "n",
-				desc = "[D]ebugging: [U]i [C]lose",
-			},
+			{ "<leader>dt", function() require("dapui").toggle() end, mode = "n", desc = "[D]ebug ui [T]oggle" },
+			{ "<leader>db", function() require("dapui").toggleBreakpoint() end, mode = "n", desc = "[D]ebug ui [T]oggle" },
+			{ "<leader>dc", function() require("dapui").continue() end, mode = "n", desc = "[D]ebug continue" },
+			{ "<leader>dr", function() require("dapui").open({reset = true}) end, desc = "[D]ebug [R]eset ui" }
 		},
 	},
 
@@ -97,33 +76,6 @@ local plugin = {
 			-- Setup dap-python with the specified path
 			require("dap-python").setup(path)
 		end,
-		keys = {
-			-- { "<leader>dt", mode = "n", desc = "[D]ebugging: [T]est + prefix" },
-			{
-				"<leader>dtm",
-				function()
-					require("dap-python").test_method()
-				end,
-				mode = "n",
-				desc = "[D]ebugging: [T]est [M]ethod (above cursor)",
-			},
-			{
-				"<leader>dtc",
-				function()
-					require("dap-python").test_class()
-				end,
-				mode = "n",
-				desc = "[D]ebugging: [T]est [C]lass (above cursor)",
-			},
-			{
-				"<leader>dts",
-				function()
-					require("dap-python").debug_selection()
-				end,
-				mode = "n",
-				desc = "[D]ebugging: [T]est [S]election",
-			},
-		},
 	},
 
 	{
