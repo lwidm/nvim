@@ -6,21 +6,9 @@ local plugin = {
 	{
 		"mfussenegger/nvim-dap",
 		keys = {
-			{
-				"<leader>db",
-				"<cmd> DapToggleBreakpoint <CR>",
-				mode = "n",
-				desc = "[D]ebugging: Toggle [B]reakpoint",
-			},
-			{
-				"<leader>drc",
-				function()
-					require("dap").continue()
-				end,
-				mode = "n",
-				desc = "[D]ebugging: [R]un [C]ontinue",
-			},
-			-- { "<leader>dr", mode = "n", desc = "[D]ebugging: [R]un + prefix" },
+			{ "<leader>db", function() require("dap").toggle_breakpoint() end, mode = "n", desc = "[D]ebug ui [T]oggle" },
+			{ "<leader>dc", function() require("dap").continue() end, mode = "n", desc = "[D]ebug continue" },
+
 		},
 	},
 
@@ -41,12 +29,10 @@ local plugin = {
 			})
 			local dapui = require("dapui")
 			dapui.setup()
-			vim.fn.sign_define('DapBreakpoint', { text="", texthl="DapBreakpoint", linehl="DapBreakpoint", numhl="DapBreakpoint" })
+			vim.fn.sign_define('DapBreakpoint', { text="🔴", texthl="DapBreakpoint", linehl="DapBreakpoint", numhl="DapBreakpoint" })
 		end,
 		keys = {
 			{ "<leader>dt", function() require("dapui").toggle() end, mode = "n", desc = "[D]ebug ui [T]oggle" },
-			{ "<leader>db", function() require("dapui").toggleBreakpoint() end, mode = "n", desc = "[D]ebug ui [T]oggle" },
-			{ "<leader>dc", function() require("dapui").continue() end, mode = "n", desc = "[D]ebug continue" },
 			{ "<leader>dr", function() require("dapui").open({reset = true}) end, desc = "[D]ebug [R]eset ui" }
 		},
 	},
