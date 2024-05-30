@@ -9,16 +9,23 @@ local plugin = {
 			"nvim-tree/nvim-web-devicons",
 		},
 		config = function()
+			local treeapi = require("nvim-tree.api")
 			require("nvim-tree").setup({
 				view = {
 					side = "left",
 				},
 			})
-			vim.api.nvim_set_keymap(
+			vim.keymap.set(
 				"n",
 				"<Leader>n",
 				":NvimTreeToggle<CR>",
 				{ noremap = true, silent = true, desc = "Toggle [N]vimTree" }
+			)
+			vim.keymap.set(
+				"n",
+				"<leader>o",
+				treeapi.tree.change_root_to_node,
+				{ desc = "[O]pen folder and change root to it" }
 			)
 		end,
 	},
