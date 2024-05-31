@@ -39,7 +39,7 @@ local plugin = {
 				clangd = {}, -- c, cpp
 				codelldb = {}, -- c, cpp debugger
 				rust_analyzer = {}, -- rust
-				lua_ls = {}, -- lua
+				lua_ls = { settings = { Lua = { diagnostics = { globals = { "vim" } } } } }, -- lua
 				cmakelang = {}, -- cmake
 				pyright = {}, -- python
 				debugpy = {}, -- python debugging
@@ -87,18 +87,6 @@ local plugin = {
 					-- ['rust_analyzer'] = function ()
 					-- 	require('rust_tools').setup {}
 					-- end,
-					["lua_ls"] = function()
-						local lspconfig = require("lspconfig")
-						lspconfig.lua_ls.setup({
-							settings = {
-								Lua = {
-									diagnostics = {
-										globals = { "vim" },
-									},
-								},
-							},
-						})
-					end,
 				},
 			})
 		end,
@@ -204,27 +192,29 @@ local plugin = {
 		"stevearc/conform.nvim",
 		config = function()
 			require("conform").setup({
-			notify_on_error = true,
-			format_on_save = function(bufnr)
-				-- Disable "format_on_save lsp_fallback" for languages thst don't have a well standardized coding style
-				-- local disable_filetypes = { c = true, cpp = true }
-				local disable_filetypes = { c = true }
-				return {
-					timeout_ms = 500,
-					lsp_fallback = not disable_filetypes[vim.bo[bufnr].filetype],
-				}
-			end,
-			formatters_by_ft = {
-				lua = { "stylua" },
-				c = { "clang-format" },
-				cpp = { "clang-format" },
-				python = { "black" },
-				nix = { "nixpkgs-fmt" },
-				cmake = { "cmake_format" },
-			},
-		})
-		vim.keymap.set("n", "<leader>f", function() require("conform").format() end, { desc = " [F]ormat" } )
-		end
+				notify_on_error = true,
+				format_on_save = function(bufnr)
+					-- Disable "format_on_save lsp_fallback" for languages thst don't have a well standardized coding style
+					-- local disable_filetypes = { c = true, cpp = true }
+					local disable_filetypes = { c = true }
+					return {
+						timeout_ms = 500,
+						lsp_fallback = not disable_filetypes[vim.bo[bufnr].filetype],
+					}
+				end,
+				formatters_by_ft = {
+					lua = { "stylua" },
+					c = { "clang-format" },
+					cpp = { "clang-format" },
+					python = { "black" },
+					nix = { "nixpkgs-fmt" },
+					cmake = { "cmake_format" },
+				},
+			})
+			vim.keymap.set("n", "<leader>fm", function()
+				require("conform").format()
+			end, { desc = " [F]ormat" })
+		end,
 	},
 
 	-- null_ls
