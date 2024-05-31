@@ -1,6 +1,6 @@
 -- lua/lwidm/plugins/mini.lua
 
-local enabled = true
+local enabled = false
 local plugin = {
 	-- Collection of various small independant plugins/modules
 	{

@@ -21,7 +21,7 @@ local plugin = {
 			end, { desc = "[t]rouble [n]ext" })
 			vim.keymap.set("n", "<leader>tp", function()
 				require("trouble").previous({ skip_groups = true, jump = true })
-			end, { desc = "[t]rouble [n]ext" })
+			end, { desc = "[t]rouble [p]revious" })
 		end,
 	},
 }

@@ -19,19 +19,15 @@ vim.keymap.set("n", "<leader>x", "<cmd>Ex<CR>")
 --end
 
 -- spellchecking remaps
-vim.keymap.set("n", "<leader>lt", "<cmd>set spell!<CR>", { desc = "[L]anguage spell checking [T]oggle" })
-vim.keymap.set(
-	"n",
-	"<leader>le",
-	"<cmd>setlocal spell spelllang=en_au<CR>",
-	{ desc = "[L]anguage spell checking set [E]nglish" }
-)
-vim.keymap.set(
-	"n",
-	"<leader>ld",
-	"<cmd>setlocal spell spelllang=de_ch<CR>",
-	{ desc = "[L]anguage spell checking set [G]erman" }
-)
+-- stylua: ignore start
+vim.keymap.set( "n", "<leader>lt", "<cmd>set spell!<CR>", { desc = "[L]anguage spell checking [T]oggle" })
+vim.keymap.set( "n", "<leader>le", "<cmd>setlocal spell spelllang=en_au<CR>", { desc = "[L]anguage spell checking set [E]nglish" } )
+vim.keymap.set( "n", "<leader>ld", "<cmd>setlocal spell spelllang=de_ch<CR>", { desc = "[L]anguage spell checking set [G]erman" } )
+-- stylua: ignore end
+
+-- moving selecionts
+vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
+vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 
 vim.keymap.set("n", "n", "'Nn'[v:searchforward].'zv'", { expr = true, desc = "Next Search Result" })
 vim.keymap.set("x", "n", "'Nn'[v:searchforward]", { expr = true, desc = "Next Search Result" })
@@ -47,79 +43,37 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		-- Jump to the definition of the word under your cursor.
 		--  This is where a variable was first declared, or where a function is defined, etc.
 		--  To jump back, press <C-t>.
-		vim.keymap.set(
-			"n",
-			"gd",
-			require("telescope.builtin").lsp_definitions,
-			{ buffer = event.buf, desc = "LSP: [G]oto [D]efinition" }
-		)
+
+		-- stylua: ignore start
+		vim.keymap.set( "n", "gd", require("telescope.builtin").lsp_definitions, { buffer = event.buf, desc = "LSP: [G]oto [D]efinition" } )
 
 		-- Find references for the word under your cursor.
-		vim.keymap.set(
-			"n",
-			"gr",
-			require("telescope.builtin").lsp_references,
-			{ buffer = event.buf, desc = "LSP: [G]oto [R]eferences" }
-		)
+		vim.keymap.set( "n", "gr", require("telescope.builtin").lsp_references, { buffer = event.buf, desc = "LSP: [G]oto [R]eferences" } )
 
 		-- Jump to the implementation of the word under your cursor.
 		--  Useful when your language has ways of declaring types without an actual implementation.
-		vim.keymap.set(
-			"n",
-			"gI",
-			require("telescope.builtin").lsp_implementations,
-			{ buffer = event.buf, desc = "LSP: [G]oto [I]mplementation" }
-		)
+		vim.keymap.set( "n", "gI", require("telescope.builtin").lsp_implementations, { buffer = event.buf, desc = "LSP: [G]oto [I]mplementation" } )
 
 		-- Jump to the type of the word under your cursor.
 		--  Useful when you're not sure what type a variable is and you want to see
 		--  the definition of its *type*, not where it was *defined*.
-		vim.keymap.set(
-			"n",
-			"<leader>D",
-			require("telescope.builtin").lsp_type_definitions,
-			{ buffer = event.buf, desc = "LSP: [Type [D]efinition" }
-		)
+		vim.keymap.set( "n", "<leader>D", require("telescope.builtin").lsp_type_definitions, { buffer = event.buf, desc = "LSP: [Type [D]efinition" } )
 
 		-- Fuzzy find all the symbols in your current document.
 		--  Symbols are things like variables, functions, types, etc.
-		vim.keymap.set(
-			"n",
-			"<leader>Ds",
-			require("telescope.builtin").lsp_document_symbols,
-			{ buffer = event.buf, desc = "LSP: [[D]ocument [S]ymbols" }
-		)
-
-		-- Fuzzy find all the symbols in your current document.
-		--  Symbols are things like variables, functions, types, etc.
-		vim.keymap.set(
-			"n",
-			"<leader>Ds",
-			require("telescope.builtin").lsp_document_symbols,
-			{ buffer = event.buf, desc = "LSP: [[D]ocument [S]ymbols" }
-		)
+		vim.keymap.set( "n", "<leader>Ds", require("telescope.builtin").lsp_document_symbols, { buffer = event.buf, desc = "LSP: [[D]ocument [S]ymbols" } )
 
 		-- Fuzzy find all the symbols in your current workspace.
 		--  Similar to document symbols, except searches over your entire project.
-		vim.keymap.set(
-			"n",
-			"<leader>ws",
-			require("telescope.builtin").lsp_dynamic_workspace_symbols,
-			{ buffer = event.buf, desc = "LSP: [[W]orkspace [S]ymbols" }
-		)
+		vim.keymap.set( "n", "<leader>ws", require("telescope.builtin").lsp_dynamic_workspace_symbols, { buffer = event.buf, desc = "LSP: [[W]orkspace [S]ymbols" })
 
 		-- Rename the variable under your cursor.
 		--  Most Language Servers support renaming across files, etc.
-		vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, { buffer = event.buf, desc = "LSP: [R]e[n]ame" })
+		vim.keymap.set( "n", "<leader>rn", vim.lsp.buf.rename, { buffer = event.buf, desc = "LSP: [R]e[n]ame" })
 
 		-- Execute a code action, usually your cursor needs to be on top of an error
 		-- or a suggestion from your LSP for this to activate.
-		vim.keymap.set(
-			"n",
-			"<leader>ca",
-			vim.lsp.buf.code_action,
-			{ buffer = event.buf, desc = "LSP: [C]ode [A]ction" }
-		)
+		vim.keymap.set( "n", "<leader>ca", vim.lsp.buf.code_action, { buffer = event.buf, desc = "LSP: [C]ode [A]ction" } )
 
 		-- Opens a popup that displays documentation about the word under your cursor
 		--  See `:help K` for why this keymap.
@@ -128,5 +82,8 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		-- WARN: This is not Goto Definition, this is Goto Declaration.
 		--  For example, in C this would take you to the header.
 		vim.keymap.set("n", "gD", vim.lsp.buf.declaration, { buffer = event.buf, desc = "[G]oto [D]eclaration" })
+
+		vim.keympa.set("n", "<leader>do", function() vim.diagnostic.open_float() end, { desc = "[D]iagnostic [O]pen float"} )
+		-- stylua: ignore end
 	end,
 })

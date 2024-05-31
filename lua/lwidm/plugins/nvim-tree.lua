@@ -11,22 +11,12 @@ local plugin = {
 		config = function()
 			local treeapi = require("nvim-tree.api")
 			require("nvim-tree").setup({
-				view = {
-					side = "left",
-				},
+				view = { side = "left" },
 			})
-			vim.keymap.set(
-				"n",
-				"<Leader>n",
-				":NvimTreeToggle<CR>",
-				{ noremap = true, silent = true, desc = "Toggle [N]vimTree" }
-			)
-			vim.keymap.set(
-				"n",
-				"<leader>o",
-				treeapi.tree.change_root_to_node,
-				{ desc = "[O]pen folder and change root to it" }
-			)
+			-- stylua: ignore start
+			vim.keymap.set( "n", "<Leader>n", ":NvimTreeToggle<CR>", { noremap = true, silent = true, desc = "Toggle [N]vimTree" } )
+			vim.keymap.set( "n", "<leader>o", treeapi.tree.change_root_to_node, { desc = "[O]pen folder and change root to it" } )
+			-- stylua: ignore end
 		end,
 	},
 }
