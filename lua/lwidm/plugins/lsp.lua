@@ -202,7 +202,8 @@ local plugin = {
 	-- Autoformat
 	{
 		"stevearc/conform.nvim",
-		opts = {
+		config = function()
+			require("conform").setup({
 			notify_on_error = true,
 			format_on_save = function(bufnr)
 				-- Disable "format_on_save lsp_fallback" for languages thst don't have a well standardized coding style
@@ -221,7 +222,9 @@ local plugin = {
 				nix = { "nixpkgs-fmt" },
 				cmake = { "cmake_format" },
 			},
-		},
+		})
+		vim.keymap.set("n", "<leader>f", function() require("conform").format() end, { desc = " [F]ormat" } )
+		end
 	},
 
 	-- null_ls
