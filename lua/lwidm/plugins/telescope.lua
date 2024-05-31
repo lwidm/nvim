@@ -24,6 +24,7 @@ local plugin = {
 						".git",
 						".mypy_cache",
 						"__pycache__",
+						".spyproject",
 					},
 				},
 			})
