@@ -12,7 +12,7 @@ local plugin = {
 				"cpp",
 				"rust",
 				"lua",
-				"javascipt",
+				"javascript",
 				"typescript",
 				"html",
 				"bash",
