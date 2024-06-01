@@ -26,6 +26,16 @@ local plugin = {
 
 	-- vim-visual-multi
 	{ "mg979/vim-visual-multi" },
+
+	-- figet
+	{
+		"j-hui/fidget.nvim",
+		config = function()
+			require("fidget").setup({
+				notification = { window = { winblend = 0 } },
+			})
+		end,
+	},
 }
 if enabled then
 	return plugin

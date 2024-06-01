@@ -1,17 +1,9 @@
 -- lua/lwidm/plugins/lsp.lua
 
 local enabled = true
-local plugin = {
+local not_for_systems = { "wslDesktop", "wslLaptop", "wslMaerz", "Desktop", "Laptop" }
 
-	-- figet
-	{
-		"j-hui/fidget.nvim",
-		config = function()
-			require("fidget").setup({
-				notification = { window = { winblend = 0 } },
-			})
-		end,
-	},
+local plugin = {
 
 	{
 		"neovim/nvim-lspconfig",
@@ -105,6 +97,11 @@ local plugin = {
 		end,
 	},
 }
+for system in pairs(not_for_systems) do
+	if system == os.getenv("MYSYSTEM") then
+		enabled = true
+	end
+end
 if enabled then
 	return plugin
 else
