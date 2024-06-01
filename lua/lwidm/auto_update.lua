@@ -54,5 +54,6 @@ local function update_nvim_config()
 end
 
 vim.api.nvim_create_user_command("UpdateNvimConfig", update_nvim_config, {})
+local function dummy() end
 
-return update_nvim_config
+return dummy
