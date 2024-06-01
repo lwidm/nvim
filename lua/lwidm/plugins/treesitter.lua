@@ -6,7 +6,21 @@ local plugin = {
 		"nvim-treesitter/nvim-treesitter",
 		build = ":TSUpdate",
 		opts = {
-			ensure_installed = { "python", "bash", "html", "markdown", "vim", "vimdoc", "c", "cpp", "lua" },
+			ensure_installed = {
+				"python",
+				"c",
+				"cpp",
+				"rust",
+				"lua",
+				"javascipt",
+				"typescript",
+				"html",
+				"bash",
+				"html",
+				"markdown",
+				"vim",
+				"vimdoc",
+			},
 			auto_install = true,
 			highlight = {
 				enable = true,

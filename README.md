@@ -13,6 +13,7 @@ in documentation directory
 * cmake
 * vim-spell-de
 * ctags
+* ripgrep
 
 ## setup
 
@@ -25,6 +26,6 @@ MYSYSTEM = WinDesktop
 <!-- TODO: update with Markdown from powershell  -->
  1. install make 
  2. install clang (using visual studio)
- 3. install clangd (maybe the previous step already does this)
+ 3. install clangd (maybe the previous step already does this):
  4. install ctags
-:w
+ 5. install diffutils (for undotree)

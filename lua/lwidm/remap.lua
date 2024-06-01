@@ -57,15 +57,15 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		-- Jump to the type of the word under your cursor.
 		--  Useful when you're not sure what type a variable is and you want to see
 		--  the definition of its *type*, not where it was *defined*.
-		vim.keymap.set( "n", "<leader>D", require("telescope.builtin").lsp_type_definitions, { buffer = event.buf, desc = "LSP: [Type [D]efinition" } )
+		vim.keymap.set( "n", "<leader>D", require("telescope.builtin").lsp_type_definitions, { buffer = event.buf, desc = "LSP: [T]ype [D]efinition" } )
 
 		-- Fuzzy find all the symbols in your current document.
 		--  Symbols are things like variables, functions, types, etc.
-		vim.keymap.set( "n", "<leader>Ds", require("telescope.builtin").lsp_document_symbols, { buffer = event.buf, desc = "LSP: [[D]ocument [S]ymbols" } )
+		vim.keymap.set( "n", "<leader>sD", require("telescope.builtin").lsp_document_symbols, { buffer = event.buf, desc = "LSP: [S]earch [D]ocument symbols" } )
 
 		-- Fuzzy find all the symbols in your current workspace.
-		--  Similar to document symbols, except searches over your entire project.
-		vim.keymap.set( "n", "<leader>ws", require("telescope.builtin").lsp_dynamic_workspace_symbols, { buffer = event.buf, desc = "LSP: [[W]orkspace [S]ymbols" })
+	--  Similar to document symbols, except searches over your entire project.
+		vim.keymap.set( "n", "<leader>sW", require("telescope.builtin").lsp_dynamic_workspace_symbols, { buffer = event.buf, desc = "LSP: [S]earch [W]orkspace symbols" })
 
 		-- Rename the variable under your cursor.
 		--  Most Language Servers support renaming across files, etc.
@@ -82,8 +82,6 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		-- WARN: This is not Goto Definition, this is Goto Declaration.
 		--  For example, in C this would take you to the header.
 		vim.keymap.set("n", "gD", vim.lsp.buf.declaration, { buffer = event.buf, desc = "[G]oto [D]eclaration" })
-
-		vim.keymap.set("n", "<leader>do", function() vim.diagnostic.open_float() end, { desc = "[D]iagnostic [O]pen float"} )
 		-- stylua: ignore end
 	end,
 })
