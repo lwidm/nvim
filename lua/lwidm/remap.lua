@@ -73,11 +73,11 @@ vim.api.nvim_create_autocmd("LspAttach", {
 
 		-- Execute a code action, usually your cursor needs to be on top of an error
 		-- or a suggestion from your LSP for this to activate.
-		vim.keymap.set( "n", "<leader>ca", vim.lsp.buf.code_action, { buffer = event.buf, desc = "LSP: [C]ode [A]ction" } )
+		vim.keymap.set( { "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, { buffer = event.buf, desc = "LSP: [C]ode [A]ction" } )
 
 		-- Opens a popup that displays documentation about the word under your cursor
 		--  See `:help K` for why this keymap.
-		vim.keymap.set("n", "K", vim.lsp.buf.hover, { buffer = event.buf, desc = "LSP: Hover Documentation" })
+		vim.keymap.set( { "n", "v" }, "K", vim.lsp.buf.hover, { buffer = event.buf, desc = "LSP: Hover Documentation" })
 
 		-- WARN: This is not Goto Definition, this is Goto Declaration.
 		--  For example, in C this would take you to the header.
