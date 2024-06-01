@@ -83,7 +83,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		--  For example, in C this would take you to the header.
 		vim.keymap.set("n", "gD", vim.lsp.buf.declaration, { buffer = event.buf, desc = "[G]oto [D]eclaration" })
 
-		vim.keympa.set("n", "<leader>do", function() vim.diagnostic.open_float() end, { desc = "[D]iagnostic [O]pen float"} )
+		vim.keymap.set("n", "<leader>do", function() vim.diagnostic.open_float() end, { desc = "[D]iagnostic [O]pen float"} )
 		-- stylua: ignore end
 	end,
 })
