@@ -26,7 +26,6 @@ local plugin = {
 
 			local lsp_serverlist = require("lwidm.lsp_serverlist")
 			require("mason").setup()
-			vim.notify(require("lwidm.helpers").tprint(lsp_serverlist.ensure_installed), vim.log.levels.INFO)
 			require("mason-tool-installer").setup({ ensure_installed = lsp_serverlist.ensure_installed })
 			require("mason-lspconfig").setup({
 				handlers = {
