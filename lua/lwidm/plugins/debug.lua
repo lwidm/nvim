@@ -6,22 +6,29 @@ local plugin = {
 	{
 		"mfussenegger/nvim-dap",
 		keys = {
-			{
-				"<leader>db",
-				function()
-					require("dap").toggle_breakpoint()
-				end,
-				mode = "n",
-				desc = "[D]ebug ui [T]oggle",
-			},
-			{
-				"<leader>dc",
-				function()
-					require("dap").continue()
-				end,
-				mode = "n",
-				desc = "[D]ebug continue",
-			},
+			-- stylua: ignore start
+			{ "<F5>", function() require("dap").continue() end, mode = "n", desc = "debug continue", },
+			{ "<F8>", function() require('dap').step_over() end, mode = "n", desc = "debug step over", },
+			{ "<F7>", function() require('dap').step_into() end, mode = "n", desc = "debug step into", },
+			{ "<S-F8>", function() require('dap').step_out() end, mode = "n", desc = "debug step out", },
+			{ "<leader>db", function() require("dap").toggle_breakpoint() end, mode = "n", desc = "[D]ebug ui [T]oggle", },
+			{ "<Leader>dr", function() require('dap').repl.open() end, mode = "n", desc = "[D]ebug open [R]epl", },
+			{ "<Leader>dl", function() require('dap').run_last() end, mode = "n", desc = "[D]ebug run [L]ast", },
+			{ "<Leader>dh", function()
+			  require('dap.ui.widgets').hover()
+			end, mode = {'n', 'v'}, desc = "[D]ap ui [H]over", },
+			{ "<Leader>dp", function()
+			  require('dap.ui.widgets').preview()
+			end, mode = {'n', 'v'}, desc = "[D]ap ui [P]review", },
+			{ "<Leader>df", function()
+			  local widgets = require('dap.ui.widgets')
+			  widgets.centered_float(widgets.frames)
+			end, mode = "n", desc = "[D]ap ui centered float [F]rames ?", },
+			{ "<Leader>ds", function()
+			  local widgets = require('dap.ui.widgets')
+			  widgets.centered_float(widgets.scopes)
+			end, mode = "n", desc = "[D]ap ui centered float [S]cope?", },
+			-- stylua: ignore start
 		},
 	},
 
@@ -48,21 +55,11 @@ local plugin = {
 			)
 		end,
 		keys = {
-			{
-				"<leader>dt",
-				function()
-					require("dapui").toggle()
-				end,
-				mode = "n",
-				desc = "[D]ebug ui [T]oggle",
-			},
-			{
-				"<leader>dr",
-				function()
-					require("dapui").open({ reset = true })
-				end,
-				desc = "[D]ebug [R]eset ui",
-			},
+			-- stylua: ignore start 
+			{ "<leader>dt", function() require("dapui").toggle() end, mode = "n", desc = "[D]ebug ui [T]oggle",},
+			{ "<leader>dR", function() require("dapui").open({ reset = true }) end, desc = "[D]ebug [R]eset ui", },
+			{ "<leader>de", function() require("dapui").eval() end, desc = "[D]ebug ui [E]valuate expression", },
+			-- stylua: ignore end
 		},
 	},
 
