@@ -6,13 +6,26 @@ local plugin = {
 	{
 		"mfussenegger/nvim-dap",
 		keys = {
-			{ "<leader>db", function() require("dap").toggle_breakpoint() end, mode = "n", desc = "[D]ebug ui [T]oggle" },
-			{ "<leader>dc", function() require("dap").continue() end, mode = "n", desc = "[D]ebug continue" },
-
+			{
+				"<leader>db",
+				function()
+					require("dap").toggle_breakpoint()
+				end,
+				mode = "n",
+				desc = "[D]ebug ui [T]oggle",
+			},
+			{
+				"<leader>dc",
+				function()
+					require("dap").continue()
+				end,
+				mode = "n",
+				desc = "[D]ebug continue",
+			},
 		},
 	},
 
-	--nvim-nio
+	-- nvim-nio
 	{ "nvim-neotest/nvim-nio" },
 
 	-- nvim-dap-ui
@@ -29,17 +42,40 @@ local plugin = {
 			})
 			local dapui = require("dapui")
 			dapui.setup()
-			vim.fn.sign_define('DapBreakpoint', { text="🔴", texthl="DapBreakpoint", linehl="DapBreakpoint", numhl="DapBreakpoint" })
+			vim.fn.sign_define(
+				"DapBreakpoint",
+				{ text = "🔴", texthl = "DapBreakpoint", linehl = "DapBreakpoint", numhl = "DapBreakpoint" }
+			)
 		end,
 		keys = {
-			{ "<leader>dt", function() require("dapui").toggle() end, mode = "n", desc = "[D]ebug ui [T]oggle" },
-			{ "<leader>dr", function() require("dapui").open({reset = true}) end, desc = "[D]ebug [R]eset ui" }
+			{
+				"<leader>dt",
+				function()
+					require("dapui").toggle()
+				end,
+				mode = "n",
+				desc = "[D]ebug ui [T]oggle",
+			},
+			{
+				"<leader>dr",
+				function()
+					require("dapui").open({ reset = true })
+				end,
+				desc = "[D]ebug [R]eset ui",
+			},
 		},
 	},
 
-	-- neodev
+	-- nvim-dap-virtual-text
 	{
-		"folke/neodev.nvim",
+		"theHamsta/nvim-dap-virtual-text",
+		dependencies = {
+			"mfussenegger/nvim-dap",
+			"nvim-treesitter/nvim-treesitter",
+		},
+		config = function()
+			require("nvim-dap-virtual-text").setup()
+		end,
 	},
 
 	-- nvim-dap-python
