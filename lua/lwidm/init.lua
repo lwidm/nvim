@@ -35,6 +35,40 @@ vim.opt.scrolloff = 10
 
 vim.opt.splitbelow = true
 
+vim.g.lsp_servers = {
+	clangd = {}, -- c, cpp
+	codelldb = {}, -- c, cpp debugger
+	rust_analyzer = {}, -- rust
+	lua_ls = { settings = { Lua = { diagnostics = { globals = { "vim" } } } } }, -- lua
+	cmakelang = {}, -- cmake
+	pyright = {}, -- python
+	debugpy = {}, -- python debugging
+	-- jsonls = {}, -- json
+	-- web
+	-- html = {}, -- html
+	-- cssls = {}, -- css
+	-- tsserver = {}, -- javascript, typescript
+	-- intelephense = {}, -- php
+}
+vim.g.format_servers = {
+	"stylua", -- lua
+	"clang-format", -- c and c++
+	"black", -- python
+}
+vim.g.other_lsp_tools = {
+	"mypy", -- python: static typing
+	"ruff", -- python: linter and formatter
+}
+
+if vim.g.os_name == "Linux" then
+	vim.list_extend(vim.g.lsp_servers, {
+		nil_ls = {}, -- nix
+	})
+	vim.list_extend(vim.g.format_servers, {
+		"nixpkgs-fmt", -- NixOs
+	})
+end
+
 require("lwidm.misc")
 require("lwidm.noArrowKeys")
 require("lwidm.lazy")
