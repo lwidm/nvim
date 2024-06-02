@@ -1,11 +1,12 @@
 -- lua/lwidm/lsp_serverlist.lua
---
+
 local M = {}
 
 M.lsp_servers = {
 	clangd = { "clangd", {} }, -- c, cpp
 	codelldb = { "codelldb", {} }, -- c, cpp debugger
 	rust_analyzer = { "rust_analyzer", {} }, -- rust
+	-- lua_ls = { "lua-language-server", {} }, -- lua
 	lua_ls = { "lua-language-server", {
 		settings = { Lua = { diagnostics = { globals = { "vim" } } } },
 	} }, -- lua
