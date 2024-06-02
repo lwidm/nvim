@@ -1,6 +1,6 @@
--- lua/lwidm/plugins/lsp.lua
+-- lua/lwidm/plugins/lspconfig.lua
 
-local enabled = truf
+local enabled = true
 local not_for_systems = { "wslDesktop", "wslLaptop", "wslMaerz", "Desktop", "Laptop" }
 
 local plugin = {
@@ -26,16 +26,23 @@ local plugin = {
 
 			local lsp_serverlist = require("lwidm.lsp_serverlist")
 			require("mason").setup()
+			vim.notify(require("lwidm.helpers").tprint(lsp_serverlist.ensure_installed), vim.log.levels.INFO)
 			require("mason-tool-installer").setup({ ensure_installed = lsp_serverlist.ensure_installed })
 			require("mason-lspconfig").setup({
 				handlers = {
 					function(server_name)
-						local server = lsp_serverlist.lsp_servers[server_name] or {}
-						-- This handles overriding only values explicitly passed
-						-- by the server configuration above. Useful when disabling
-						-- certain features of an LSP (for example, turning off formatting for tsserver)
-						server.capabilities = vim.tbl_deep_extend("force", {}, capabilities, server.capabilities or {})
-						require("lspconfig")[server_name].setup({})
+						local is_lspserver = false
+						for server, _ in pairs(lsp_serverlist.lsp_servers) do
+							if server_name == server then
+								is_lspserver = true
+							end
+						end
+						if is_lspserver then
+							local options = lsp_serverlist.lsp_servers[server_name] or {}
+							options[2].capabilities =
+								vim.tbl_deep_extend("force", {}, capabilities, options[2].capabilities or {})
+							require("lspconfig")[server_name].setup({ options[2] })
+						end
 					end,
 					-- ['rust_analyzer'] = function ()
 					-- 	require('rust_tools').setup {}
