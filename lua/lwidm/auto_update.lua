@@ -40,7 +40,7 @@ local function update_nvim_config()
 			if git_push_nvim_config() then
 				vim.notify("Successfully pushed the latest changes.", vim.log.levels.INFO)
 			else
-				vim.notifiy("Failed to push changes.", vim.log.levels.ERROR)
+				vim.notify("Failed to push changes.", vim.log.levels.ERROR)
 			end
 		else
 			vim.notify("Failed to pull changes.", vim.log.levels.ERROR)
