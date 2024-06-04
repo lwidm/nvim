@@ -17,6 +17,8 @@ vim.keymap.set("n", "<leader>x", "<cmd>Ex<CR>")
 --	vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
 --	vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 --end
+vim.keymap.set("n", "<C-d>", "<C-d>zz", { desc = "jump half page [D]own" })
+vim.keymap.set("n", "<C-u>", "<C-u>zz", { desc = "jump half page [U]p" })
 
 -- spellchecking remaps
 -- stylua: ignore start
@@ -34,12 +36,11 @@ vim.keymap.set("n", "<M-h>", "<C-w><", { desc = "Decrease width" })
 vim.keymap.set("v", "<M-j>", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "<M-k>", ":m '<-2<CR>gv=gv")
 
-vim.keymap.set("n", "n", "'Nn'[v:searchforward].'zv'", { expr = true, desc = "Next Search Result" })
-vim.keymap.set("x", "n", "'Nn'[v:searchforward]", { expr = true, desc = "Next Search Result" })
-vim.keymap.set("o", "n", "'Nn'[v:searchforward]", { expr = true, desc = "Next Search Result" })
-vim.keymap.set("n", "N", "'nN'[v:searchforward].'zv'", { expr = true, desc = "Prev Search Result" })
-vim.keymap.set("x", "N", "'nN'[v:searchforward]", { expr = true, desc = "Prev Search Result" })
-vim.keymap.set("o", "N", "'nN'[v:searchforward]", { expr = true, desc = "Prev Search Result" })
+vim.keymap.set("n", "n", "nzzzv", { desc = "goto [N]ext search term" })
+vim.keymap.set("n", "N", "Nzzzv", { desc = "goto previous search term" })
+
+-- paste over without loosing previous yank
+vim.keymap.set("x", "<leader>p", '"_dP', { desc = "[P]aste over without loosing yank" })
 
 -- LSP keymaps
 vim.api.nvim_create_autocmd("LspAttach", {
