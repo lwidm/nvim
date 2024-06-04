@@ -6,7 +6,8 @@ local plugin = {
 		"folke/noice.nvim",
 		event = "VeryLazy",
 		opts = {
-			background_color = "#00000000",
+			background_color = "#000000",
+			views = { mini = { win_options = { winblend = 0 } } },
 		},
 		dependencies = {
 			"MunifTanjim/nui.nvim",
