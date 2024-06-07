@@ -5,10 +5,14 @@ local plugin = {
 	{
 		"folke/noice.nvim",
 		event = "VeryLazy",
-		opts = {
-			background_color = "#000000",
-			views = { mini = { win_options = { winblend = 0 } } },
-		},
+		config = function()
+			require("noice").setup({
+				views = { mini = { win_options = { winblend = 0 } } },
+			})
+			require("notify").setup({
+				background_colour = "#000000",
+			})
+		end,
 		dependencies = {
 			"MunifTanjim/nui.nvim",
 			"rcarriga/nvim-notify",
