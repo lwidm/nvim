@@ -25,6 +25,7 @@ M.format_servers = {
 	cpp = { "clang-format" }, -- c and c++
 	python = { "black" }, -- python
 }
+
 M.other_lsp_tools = {
 	"mypy", -- python: static typing
 	"ruff", -- python: linter and formatter
@@ -34,8 +35,8 @@ if vim.g.os_name == "Linux" then
 	M.lsp_servers = vim.tbl_deep_extend("error", M.lsp_servers, {
 		nil_ls = { "nil", {} }, -- nix
 	})
-	M.format_servers = vim.list_extend(M.format_servers, {
-		nix = { "nixpkgs-fmt" }, -- nix
+	M.format_servers = vim.tbl_deep_extend("error", M.format_servers, {
+		nix = { "nixfmt", "nixpkgs-fmt" }, -- nix
 	})
 end
 
