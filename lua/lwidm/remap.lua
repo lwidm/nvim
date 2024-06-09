@@ -27,14 +27,14 @@ vim.keymap.set( "n", "<leader>le", "<cmd>setlocal spell spelllang=en_au<CR>", { 
 vim.keymap.set( "n", "<leader>ld", "<cmd>setlocal spell spelllang=de_ch<CR>", { desc = "[L]anguage spell checking set [G]erman" } )
 -- stylua: ignore end
 
-vim.keymap.set("n", "<M-k>", "<C-w>+", { desc = "Increase height" })
-vim.keymap.set("n", "<M-j>", "<C-w>-", { desc = "Decrease height" })
+vim.keymap.set("n", "<M-k>", "<C-w>-", { desc = "Decrease height" })
+vim.keymap.set("n", "<M-j>", "<C-w>+", { desc = "Increase height" })
 vim.keymap.set("n", "<M-l>", "<C-w>>", { desc = "Increase width" })
 vim.keymap.set("n", "<M-h>", "<C-w><", { desc = "Decrease width" })
 
 -- moving selecionts
-vim.keymap.set("v", "<M-j>", ":m '>+1<CR>gv=gv")
-vim.keymap.set("v", "<M-k>", ":m '<-2<CR>gv=gv")
+vim.keymap.set("v", "<M-j>", ":m '>+1<CR>gv=gv", { desc = "Move selection down", silent = true })
+vim.keymap.set("v", "<M-k>", ":m '<-2<CR>gv=gv", { desc = "Move selection down", silent = true })
 
 vim.keymap.set("n", "n", "nzzzv", { desc = "goto [N]ext search term" })
 vim.keymap.set("n", "N", "Nzzzv", { desc = "goto previous search term" })
