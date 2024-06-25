@@ -10,7 +10,7 @@ M.lsp_servers = {
 	lua_ls = { "lua-language-server", {
 		settings = { Lua = { diagnostics = { globals = { "vim" } } } },
 	} }, -- lua
-	cmakelang = { "cmakelang", {} }, -- cmake
+	cmake = { "cmake-language-server", {} }, -- cmake
 	pyright = { "pyright", {} }, -- python
 	debugpy = { "debugpy", {} }, -- python debugging
 	-- jsonls = {}, -- json
@@ -24,6 +24,7 @@ M.format_servers = {
 	lua = { "stylua" }, -- lua
 	cpp = { "clang-format" }, -- c and c++
 	python = { "black" }, -- python
+	cmake = { "cmake-format" }, -- cmake
 }
 
 M.other_lsp_tools = {
