@@ -24,7 +24,6 @@ M.format_servers = {
 	lua = { "stylua" }, -- lua
 	cpp = { "clang-format" }, -- c and c++
 	python = { "black" }, -- python
-	cmake = { "cmake-format" }, -- cmake
 }
 
 M.other_lsp_tools = {
