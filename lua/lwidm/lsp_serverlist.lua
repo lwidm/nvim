@@ -19,6 +19,8 @@ M.lsp_servers = {
 	-- cssls = {}, -- css
 	-- tsserver = {}, -- javascript, typescript
 	-- intelephense = {}, -- php
+	texlab = { "texlab", {} },
+	ltex = { "ltex-ls", {} },
 }
 M.format_servers = {
 	lua = { "stylua" }, -- lua
