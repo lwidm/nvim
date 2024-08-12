@@ -1,6 +1,6 @@
 # Welcome to my Neovim Config!
 
-This repository sets up neovim for development, notetaking and text editing. The configuration is setup for both a windows and linux environment and uses the MYSYSTEM environment variable to enable/disable device specific options
+This repository sets up neovim for development, notetaking and text editing. The configuration is set up both for a windows and a linux environment and uses the MYSYSTEM environment variable to enable/disable device specific options.
 
 Currently this config supports the following languages:
 * c++
@@ -11,7 +11,7 @@ Currently this config supports the following languages:
 * css
 * markdown
 * latex
-... and features :
+... and features:
 * lsp
 * autocompletion
 * linting
