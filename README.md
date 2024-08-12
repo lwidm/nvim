@@ -11,6 +11,7 @@ Currently this config supports the following languages:
 * css
 * markdown
 * latex
+
 ... and features:
 * lsp
 * autocompletion
@@ -18,6 +19,7 @@ Currently this config supports the following languages:
 * debugging
 * obsidian support
 * git support
+
 ... and more
 
 
