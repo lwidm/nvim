@@ -30,6 +30,7 @@ Currently this config supports the following languages:
 * cmake
 * clang
 * clangd
+* rust (cargo/rustup)
 * ripgrep
 * GNU diffutils
 
@@ -67,7 +68,7 @@ git clone https://github.com/lwidm/nvim $env:LOCALAPPDATA\nvim\
 #### 6. Install CMake
 1. Download the cmake installer from the [official website](https://cmake.org/download/)
 2. Install CMake by running the installer.
-3. Make sure CMake is added to your system PATH (this should happen during the installation process).
+3. Make sure CMake is added to your system PATH (this should happen during the installation process)
 
 #### 7. Install clang, clangd and msvc using latest release of **Visual Studio Community Edition**
 1. Download latest release of **Visual Studio Community Edition** from [here](https://visualstudio.microsoft.com)
@@ -88,10 +89,14 @@ this could be `C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools`
 
 #### 8. install clangd (maybe the previous step already does this):
 
-#### 9. install ripgrep
+#### 9. Install Rust (cargo) and add it to path
+1. Install Rust by following the instructions on the [official Rust website](https://doc.rust-lang.org/cargo/getting-started/installation.html).
+2. During installation, you might need to install C++ tools from Visual Studio. If prompted, follow the instructions to install the necessary components.
+   
+#### 10. install ripgrep
 run the following command:
 ```PowerShell
 winget install BurntSushi.ripgrep.MSVC
 ```
 
-#### 10. Install GNU diffutils (for undotree)
+#### 11. Install GNU diffutils (for undotree)
