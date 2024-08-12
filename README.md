@@ -85,7 +85,8 @@ git clone https://github.com/lwidm/nvim $env:LOCALAPPDATA\nvim\
   * Windows 11 SDK
   * MSBuild support for LLVM (clang-cl) toolset
 4. Add installed tools to PATH
-this could be `C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools`
+  * `C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\Llvm\bin`
+  * `C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.40.33807\bin`
 
 #### 8. install clangd (maybe the previous step already does this):
 
