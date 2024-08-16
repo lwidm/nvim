@@ -86,7 +86,8 @@ git clone https://github.com/lwidm/nvim $env:LOCALAPPDATA\nvim\
   * MSBuild support for LLVM (clang-cl) toolset
 4. Add installed tools to PATH
   * `C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\Llvm\bin`
-  * `C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.40.33807\bin`
+  * `C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.40.33807\bin\Hostx64\x64`
+  * `C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin`
 
 #### 8. install clangd (maybe the previous step already does this):
 
@@ -101,3 +102,7 @@ winget install BurntSushi.ripgrep.MSVC
 ```
 
 #### 11. Install GNU diffutils (for undotree)
+
+### Issues
+#### Treesitter not working for lua
+- reinstall lua parser by running `:TSInstall lua`
