@@ -1,6 +1,6 @@
 # Welcome to my Neovim Config!
 
-This repository sets up neovim for development, notetaking and text editing. The configuration is set up both for a windows and a linux environment and uses the MYSYSTEM environment variable to enable/disable device specific options.
+This repository sets up neovim for development, note taking and text editing. The configuration is set up both for a Windows and a Linux environment and uses the MYSYSTEM environment variable to enable/disable device specific options.
 
 Currently this config supports the following languages:
 * c++
@@ -34,7 +34,7 @@ Currently this config supports the following languages:
 * ripgrep
 * GNU diffutils
 
-## setup
+## Setup
 
 ### general
 add environment variable `MYSYSTEM`
@@ -63,10 +63,10 @@ git clone https://github.com/lwidm/nvim $env:LOCALAPPDATA\nvim\
 1. Download the GnuWin32 package for Make from [here](https://gnuwin32.sourceforge.net/packages/make.htm).
 2. Install Make by running the installer.
 3. Add Make to your system PATH. The default installation path usually is: `C:\Program Files (x86)\GnuWin32\bin`. 1. install make 
- 2. install clang (using visual studio)
+ 2. Install clang (using visual studio)
 
 #### 6. Install CMake
-1. Download the cmake installer from the [official website](https://cmake.org/download/)
+1. Download the Cmake installer from the [official website](https://cmake.org/download/)
 2. Install CMake by running the installer.
 3. Make sure CMake is added to your system PATH (this should happen during the installation process)
 
@@ -88,14 +88,17 @@ git clone https://github.com/lwidm/nvim $env:LOCALAPPDATA\nvim\
   * `C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\Llvm\bin`
   * `C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.40.33807\bin\Hostx64\x64`
   * `C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin`
+5. Set CC and CXX environment variables
+  * CC: `C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\Llvm\bin\clang.exe`
+  * CXX: `C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\Llvm\bin\clang++.exe`
 
-#### 8. install clangd (maybe the previous step already does this):
+#### 8. Install clangd (maybe the previous step already does this):
 
 #### 9. Install Rust (cargo) and add it to path
 1. Install Rust by following the instructions on the [official Rust website](https://doc.rust-lang.org/cargo/getting-started/installation.html).
 2. During installation, you might need to install C++ tools from Visual Studio. If prompted, follow the instructions to install the necessary components.
    
-#### 10. install ripgrep
+#### 10. Install ripgrep
 run the following command:
 ```PowerShell
 winget install BurntSushi.ripgrep.MSVC
@@ -104,5 +107,8 @@ winget install BurntSushi.ripgrep.MSVC
 #### 11. Install GNU diffutils (for undotree)
 
 ### Issues
-#### Treesitter not working for lua
-- reinstall lua parser by running `:TSInstall lua`
+#### TreeSitter not working for <language>
+- Reinstall lua parser by running `:TSInstall <languaga>`
+- Where Language can be:
+  - `lua`
+  - `markdown`
