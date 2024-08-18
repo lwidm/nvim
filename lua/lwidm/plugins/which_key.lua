@@ -21,6 +21,16 @@ local plugin = {
 				["<leader>gdp"] = { name = "[G]it [D]iff [P]ut", _ = "which_key_ignore" },
 
 				["<localleader>l"] = { name = "[L]atex", _ = "which_key_ignore" },
+
+				-- spelling
+				["z="] = { name = "suggest correctly spelled word", _ = "which_key_ignore" },
+				["zg"] = { name = "add word to good word list in spellfile", _ = "which_key_ignore" },
+				["zw"] = { name = "add word to bad word list in spellfile", _ = "which_key_ignore" },
+				["zG"] = { name = "add word to internal good word list", _ = "which_key_ignore" },
+				["zW"] = { name = "add word to internal bad word list", _ = "which_key_ignore" },
+
+				-- obsidian
+				["<leader>o"] = { name = "obsidian / open folder", _ = "which_key_ignore" },
 			})
 		end,
 	},
