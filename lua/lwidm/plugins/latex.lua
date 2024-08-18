@@ -4,7 +4,7 @@ local enabled = true
 local plugin = {
 	{
 		"lervag/vimtex",
-		lazy = false,
+		event = "VimEnter",
 		init = function()
 			vim.g.vimtex_view_method = "zathura"
 

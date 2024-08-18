@@ -4,7 +4,7 @@ local enabled = true
 local plugin = {
 	{ -- Useful plugin to show you pending keybinds.
 		"folke/which-key.nvim",
-		event = "VimEnter",
+		event = "VeryLazy",
 		config = function()
 			require("which-key").setup()
 			require("which-key").register({
