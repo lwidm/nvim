@@ -5,6 +5,7 @@ local plugin = {
 	-- Autoformat
 	"stevearc/conform.nvim",
 	config = function()
+		local lsp_serverlist = require("lwidm.lsp_serverlist")
 		require("conform").setup({
 			notify_on_error = true,
 			format_on_save = function(bufnr)
@@ -16,7 +17,7 @@ local plugin = {
 					lsp_fallback = not disable_filetypes[vim.bo[bufnr].filetype],
 				}
 			end,
-			formatters_by_ft = require("lwidm.lsp_serverlist").format_servers,
+			formatters_by_ft = lsp_serverlist.transform_format_servers(lsp_serverlist.format_servers, false),
 		})
 		-- stylua: ignore
 		vim.keymap.set("n", "<leader>f", function() require("conform").format({timeout_ms=10000}) end, { desc = " [F]ormat" })
