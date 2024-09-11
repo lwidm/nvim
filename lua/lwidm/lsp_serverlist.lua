@@ -18,7 +18,7 @@ M.lsp_servers = {
 	debugpy = { "debugpy", {} }, -- python debugging
 	-- jsonls = {}, -- json
 	-- web
-	html = { "html-lsp" }, -- html
+	html = { "html-lsp", {} }, -- html
 	cssls = { "css-lsp", {} }, -- css
 	tsserver = { "typescript-language-server", {} }, -- javascript, typescript
 	tailwindcss = { "tailwindcss-language-server", {} }, -- tailwindcss
