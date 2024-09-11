@@ -14,12 +14,14 @@ local plugin = {
 				"lua",
 				"javascript",
 				"typescript",
+				"css"
 				"html",
 				"bash",
 				"html",
 				"markdown",
 				"vim",
 				"vimdoc",
+				"nix",
 			},
 			auto_install = true,
 			highlight = {

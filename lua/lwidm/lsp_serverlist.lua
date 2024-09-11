@@ -2,6 +2,7 @@
 
 local M = {}
 
+-- table id: server name
 -- index 0: Mason name
 -- index 1: options list
 M.lsp_servers = {
@@ -17,9 +18,12 @@ M.lsp_servers = {
 	debugpy = { "debugpy", {} }, -- python debugging
 	-- jsonls = {}, -- json
 	-- web
-	-- html = {}, -- html
-	-- cssls = {}, -- css
-	typescript-language-server = { "tsserver", {} }, -- javascript, typescript
+	html = { "html-lsp" }, -- html
+	cssls = { "css-lsp", {} }, -- css
+	tsserver = { "typescript-language-server", {} }, -- javascript, typescript
+	tailwindcss = { "tailwindcss-language-server", {} }, -- tailwindcss
+	eslint = { "eslint-lsp", {} }, -- ESlint
+	prettierd = { "prettierd", {} }, -- Prettier as a daemon
 	-- intelephense = {}, -- php
 	texlab = { "texlab", {} },
 	ltex = { "ltex-ls", {} },

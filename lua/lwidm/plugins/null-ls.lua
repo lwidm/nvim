@@ -29,6 +29,9 @@ local plugin = {
 			if vim.fn.executable("ruff") == 1 then
 				table.insert(sources, null_ls.builtins.diagnostics.ruff)
 			end
+			if vim.fn.executable("prettierd") == 1 then
+				table.insert(sources, null_ls.builtins.formatting.prettierd)
+			end
 			null_ls.setup({
 				sources = sources,
 			})
