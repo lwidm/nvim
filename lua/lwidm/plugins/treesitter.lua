@@ -14,7 +14,7 @@ local plugin = {
 				"lua",
 				"javascript",
 				"typescript",
-				"css"
+				"css",
 				"html",
 				"bash",
 				"html",
