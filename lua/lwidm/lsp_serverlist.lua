@@ -19,7 +19,7 @@ M.lsp_servers = {
 	-- web
 	-- html = {}, -- html
 	-- cssls = {}, -- css
-	-- tsserver = {}, -- javascript, typescript
+	typescript-language-server = { "tsserver", {} }, -- javascript, typescript
 	-- intelephense = {}, -- php
 	texlab = { "texlab", {} },
 	ltex = { "ltex-ls", {} },
