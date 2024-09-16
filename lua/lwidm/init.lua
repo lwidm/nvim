@@ -53,7 +53,7 @@ vim.wo.conceallevel = 2 -- Conceal both single-character items and multi-charact
 
 require("lwidm.misc")
 require("lwidm.noArrowKeys")
-require("lwidm.lazy")
 require("lwidm.remap")
+require("lwidm.lazy")
 
 require("lwidm.auto_update")()

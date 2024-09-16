@@ -26,7 +26,8 @@ local plugin = {
 			auto_install = true,
 			highlight = {
 				enable = true,
-				additional_vim_regex_highlighting = { "markdown" },
+				disable = { "latex" },
+				additional_vim_regex_highlighting = { "latex", "markdown" },
 			},
 			indent = { enable = true, disable = { "ruby" } },
 		},
