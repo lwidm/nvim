@@ -23,6 +23,7 @@ local plugin = {
 				"vimdoc",
 				"nix",
 			},
+			ignore_install = { "latex" },
 			auto_install = true,
 			highlight = {
 				enable = true,
