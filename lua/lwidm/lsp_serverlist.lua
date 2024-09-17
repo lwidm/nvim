@@ -20,7 +20,7 @@ M.lsp_servers = {
 	-- web
 	html = { "html-lsp", {} }, -- html
 	cssls = { "css-lsp", {} }, -- css
-	tsserver = { "typescript-language-server", {} }, -- javascript, typescript
+	ts_ls = { "typescript-language-server", {} }, -- javascript, typescript
 	tailwindcss = { "tailwindcss-language-server", {} }, -- tailwindcss
 	eslint = { "eslint-lsp", {} }, -- ESlint
 	prettierd = { "prettierd", {} }, -- Prettier as a daemon
