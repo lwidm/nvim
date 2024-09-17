@@ -18,7 +18,7 @@ Currently this config supports the following languages:
 - lsp
 - autocompletion
 - linting
-- debugging
+- debugginyg
 - obsidian support
 - git support
 
@@ -37,7 +37,15 @@ Currently this config supports the following languages:
 - ripgrep
 - GNU diffutils
 - latexmk (can be installed through texliveFull)
+
+### Linux prerequisites
+
 - zanthura
+
+### Windows prerequisites
+
+- sumatraPDF
+  - you need to add it to PATH (typically under `~\AppData\Local\SumatraPDF`
 
 ## Setup
 
@@ -123,6 +131,11 @@ run the following command:
 ```PowerShell
 winget install BurntSushi.ripgrep.MSVC
 ```
+
+#### 11. Install SumatraPDF
+
+1. Install from [the official webiste](https://www.sumatrapdfreader.org/download-free-pdf-viewer)
+2. Add binaries to PATH (typically found at `~\AppData\Local\sumatraPDF`)
 
 #### 11. Install GNU diffutils (for undotree)
 
