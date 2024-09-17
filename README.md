@@ -18,7 +18,7 @@ Currently this config supports the following languages:
 - lsp
 - autocompletion
 - linting
-- debugginyg
+- debugging
 - obsidian support
 - git support
 
