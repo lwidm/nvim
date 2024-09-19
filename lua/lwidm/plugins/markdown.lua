@@ -12,7 +12,7 @@ local plugin = {
 		end,
 		keys = {
 			-- stylua: ignore start
-			{ "<leader>mp", ":MarkdownPreviewToggle<CR>", mode = "n", { silent = true, desc = "[M]arkdown [P]review toggle"}},
+			{ "<leader>mp", ":MarkdownPreviewToggle<CR>", mode = "n", silent = true, desc = "[M]arkdown [P]review toggle"},
 			-- stylua: ignore end
 		},
 	},
