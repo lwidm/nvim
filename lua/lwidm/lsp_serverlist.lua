@@ -25,8 +25,13 @@ M.lsp_servers = {
 	eslint = { "eslint-lsp", {} }, -- ESlint
 	prettierd = { "prettierd", {} }, -- Prettier as a daemon
 	-- intelephense = {}, -- php
-	texlab = { "texlab", {} },
-	ltex = { "ltex-ls", {} },
+	texlab = {
+		"texlab",
+		{
+			settings = { texlab = { diagnostics = { ignoredPatterns = { ".*(spellcheck).*" } } } }, -- Ignore spellcheck diagnostics
+		},
+	},
+	-- ltex = { "ltex-ls", {} }, -- only enable this if you want to spellcheck using ltex (I find this is ass)
 }
 -- index 0: Mason name
 -- index 1: Conform name
