@@ -137,7 +137,10 @@ winget install BurntSushi.ripgrep.MSVC
 1. Install from [the official webiste](https://www.sumatrapdfreader.org/download-free-pdf-viewer)
 2. Add binaries to PATH (typically found at `~\AppData\Local\sumatraPDF`)
 
-#### 11. Install GNU diffutils (for undotree)
+#### 12. Add Mason binaries to path
+(usally located at C:\Users\lukas\AppData\Local\nvim-data\mason\bin)
+
+#### 13. Install GNU diffutils (for undotree)
 
 ### Issues
 
