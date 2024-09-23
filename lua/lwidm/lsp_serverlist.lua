@@ -32,6 +32,8 @@ M.lsp_servers = {
 		},
 	},
 	-- ltex = { "ltex-ls", {} }, -- only enable this if you want to spellcheck using ltex (I find this is ass)
+
+	fortls = { "fortls", {} }, --fornat
 }
 -- index 0: Mason name
 -- index 1: Conform name
@@ -40,6 +42,7 @@ M.format_servers = {
 	cpp = { { "clang-format", "clang-format" } }, -- c and c++
 	python = { { "black", "black" } }, -- python
 	cmake = { { "cmakelang", "cmake_format" } }, -- cmake
+	fortran = { { "fprettify", "fprettify"} }, --fornat
 }
 
 M.other_lsp_tools = {
