@@ -15,6 +15,8 @@ local plugin = {
 
 			-- friendly-snippets - enable standardized comments snippets
 			require("luasnip").filetype_extend("typescript", { "tsdoc" })
+			require("luasnip").filetype_extend("fortran90", { "fortran" })
+			require("luasnip").filetype_extend("fortran77", { "fortran" })
 		end,
 	},
 }

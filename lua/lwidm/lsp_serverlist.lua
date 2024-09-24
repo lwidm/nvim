@@ -36,24 +36,14 @@ M.lsp_servers = {
 		"fortls",
 		{
 			filetypes = { "fortran", "fortran77", "fortran90" },
-			-- 	on_attach = function(client, bufnr)
-			-- 		local filetype = vim.bo[bufnr].filetype
-			--
-			-- 		if filetype == "fortran77" then
-			-- 			-- Enable fixed format for Fortran77
-			-- 			client.server_capabilities.documentFormattingProvider = true
-			-- 		elseif filetype == "fortran90" then
-			-- 			-- Disable fixed format for Fortran90
-			-- 			client.server_capabilities.documentFormattingProvider = false
-			-- 		end
-			-- 	end,
-			-- 	settings = {
-			-- 		fortran = {
-			-- 			fixedFormat = {
-			-- 				enable = true, -- Enable fixed format for Fortran77
-			-- 			},
-			-- 		},
-			-- 	},
+			settings = {
+				fortls = {
+					snippets = true, -- Enable snippets
+					fixedFormat = {
+						enable = true, -- Enable fixed format for Fortran77
+					},
+				},
+			},
 		},
 	}, -- fortan90 and fortan77
 }
