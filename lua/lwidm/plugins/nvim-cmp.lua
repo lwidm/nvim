@@ -30,7 +30,7 @@ local plugin = {
 				},
 				formatting = {
 					-- https://github.com/brenoprata10/nvim-highlight-colors
-					format = require("nvim-highlight-colors").format
+					format = require("nvim-highlight-colors").format,
 				},
 				mapping = cmp.mapping.preset.insert({
 					-- Select the [n]ext item

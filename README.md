@@ -47,6 +47,13 @@ Currently this config supports the following languages:
 - sumatraPDF
   - you need to add it to PATH (typically under `~\AppData\Local\SumatraPDF`
 
+## non lazy - priority loading
+
+| plugin                        | file path                       | priority |
+| ----------------------------- | ------------------------------- | -------- |
+| `catppuccin/nvim`             | `lwidm/plugins/colorscheme.lua` | 1001     |
+| `nvim-tree/nvim-web-devicons` | `lwidm/plugins/init.lua`        | 1000     |
+
 ## Setup
 
 ### general
@@ -138,6 +145,7 @@ winget install BurntSushi.ripgrep.MSVC
 2. Add binaries to PATH (typically found at `~\AppData\Local\sumatraPDF`)
 
 #### 12. Add Mason binaries to path
+
 (usally located at C:\Users\lukas\AppData\Local\nvim-data\mason\bin)
 
 #### 13. Install GNU diffutils (for undotree)
@@ -150,3 +158,7 @@ winget install BurntSushi.ripgrep.MSVC
 - Where Language can be:
   - `lua`
   - `markdown`
+
+#### Fortran
+
+- fortran77 nvim-web-devicons not working

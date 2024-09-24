@@ -21,7 +21,7 @@ local plugin = {
 	{ -- colorscheme
 		"catppuccin/nvim",
 		name = "catppuccin",
-		priority = 1000,
+		priority = 1001,
 		init = function()
 			local mocha = require("catppuccin.palettes").get_palette("mocha")
 			require("catppuccin").setup({

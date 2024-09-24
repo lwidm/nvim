@@ -22,18 +22,21 @@ local plugin = {
 	-- nvim-web-devicons
 	{
 		"nvim-tree/nvim-web-devicons",
-		lazy = true,
+		lazy = false,
+		priority = 1000,
 		config = function()
 			local devicons = require("nvim-web-devicons")
-			local fortran_icon, fortran_colour = devicons.get_icon("fortran")
+			-- local fortran_icon, fortran_colour = devicons.get_icon_colors_by_filetype("lua")
+			local fortran_icon, fortran_colour = devicons.get_icon_colors_by_filetype("fortran")
 			devicons.setup({
-				override = {
-					fortran77 = {
+				strict = true,
+				override_by_extension = {
+					["f"] = {
 						icon = fortran_icon,
 						color = "#FFD700",
 						name = "fortran77",
 					},
-					fortran90 = {
+					["f90"] = {
 						icon = fortran_icon,
 						color = fortran_colour,
 						name = "fortran90",
