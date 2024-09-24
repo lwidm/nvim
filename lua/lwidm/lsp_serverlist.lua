@@ -32,8 +32,30 @@ M.lsp_servers = {
 		},
 	},
 	-- ltex = { "ltex-ls", {} }, -- only enable this if you want to spellcheck using ltex (I find this is ass)
-
-	fortls = { "fortls", {} }, --fornat
+	fortls = {
+		"fortls",
+		{
+			filetypes = { "fortran", "fortran77", "fortran90" },
+			-- 	on_attach = function(client, bufnr)
+			-- 		local filetype = vim.bo[bufnr].filetype
+			--
+			-- 		if filetype == "fortran77" then
+			-- 			-- Enable fixed format for Fortran77
+			-- 			client.server_capabilities.documentFormattingProvider = true
+			-- 		elseif filetype == "fortran90" then
+			-- 			-- Disable fixed format for Fortran90
+			-- 			client.server_capabilities.documentFormattingProvider = false
+			-- 		end
+			-- 	end,
+			-- 	settings = {
+			-- 		fortran = {
+			-- 			fixedFormat = {
+			-- 				enable = true, -- Enable fixed format for Fortran77
+			-- 			},
+			-- 		},
+			-- 	},
+		},
+	}, -- fortan90 and fortan77
 }
 -- index 0: Mason name
 -- index 1: Conform name
@@ -42,7 +64,9 @@ M.format_servers = {
 	cpp = { { "clang-format", "clang-format" } }, -- c and c++
 	python = { { "black", "black" } }, -- python
 	cmake = { { "cmakelang", "cmake_format" } }, -- cmake
-	fortran = { { "fprettify", "fprettify"} }, --fornat
+	fortran90 = { { "fprettify", "fprettify" } }, -- fortan90
+	-- fortran77 = { { "fprettify", "fprettify" } }, -- fortan90
+	fortran = { { "fprettify", "fprettify" } }, -- fortan90
 }
 
 M.other_lsp_tools = {

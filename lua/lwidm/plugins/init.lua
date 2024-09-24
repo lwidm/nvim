@@ -20,7 +20,28 @@ local plugin = {
 	},
 
 	-- nvim-web-devicons
-	{ "nvim-tree/nvim-web-devicons", lazy = true },
+	{
+		"nvim-tree/nvim-web-devicons",
+		lazy = true,
+		config = function()
+			local devicons = require("nvim-web-devicons")
+			local fortran_icon, fortran_colour = devicons.get_icon("fortran")
+			devicons.setup({
+				override = {
+					fortran77 = {
+						icon = fortran_icon,
+						color = "#FFD700",
+						name = "fortran77",
+					},
+					fortran90 = {
+						icon = fortran_icon,
+						color = fortran_colour,
+						name = "fortran90",
+					},
+				},
+			})
+		end,
+	},
 
 	{ "preservim/tagbar" },
 
@@ -41,14 +62,14 @@ local plugin = {
 	{ "elkowar/yuck.vim" },
 
 	-- show colors in the editor
-	{ "brenoprata10/nvim-highlight-colors",
+	{
+		"brenoprata10/nvim-highlight-colors",
 		config = function()
 			vim.opt.termguicolors = true
 
 			require("nvim-highlight-colors").setup({})
-		end
+		end,
 	},
-
 }
 if enabled then
 	return plugin
