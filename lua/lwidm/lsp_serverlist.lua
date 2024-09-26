@@ -28,7 +28,12 @@ M.lsp_servers = {
 	texlab = {
 		"texlab",
 		{
-			settings = { texlab = { diagnostics = { ignoredPatterns = { ".*(spellcheck).*" } } } }, -- Ignore spellcheck diagnostics
+			settings = {
+				texlab = {
+					latexformatter = "latexindent",
+					diagnostics = { ignoredPatterns = { ".*(spellcheck).*" } },
+				},
+			}, -- Ignore spellcheck diagnostics
 		},
 	},
 	-- ltex = { "ltex-ls", {} }, -- only enable this if you want to spellcheck using ltex (I find this is ass)
