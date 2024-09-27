@@ -1,3 +1,6 @@
+-- general keymaps
+vim.api.nvim_set_keymap("n", "gp", ":b#<CR>", { noremap = true, silent = true, desc = "[G]o to [P]revious buffer" })
+
 -- Set highlight on search, but clear on pressing <Esc> in normal mode
 vim.opt.hlsearch = true
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>", { desc = "clear highlight on search" })
