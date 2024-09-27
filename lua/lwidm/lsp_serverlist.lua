@@ -51,6 +51,8 @@ M.lsp_servers = {
 			},
 		},
 	}, -- fortan90 and fortan77
+
+	lemminx = { "lemminx", {} },
 }
 -- index 0: Mason name
 -- index 1: Conform name
@@ -59,9 +61,10 @@ M.format_servers = {
 	cpp = { { "clang-format", "clang-format" } }, -- c and c++
 	python = { { "black", "black" } }, -- python
 	cmake = { { "cmakelang", "cmake_format" } }, -- cmake
-	fortran90 = { { "fprettify", "fprettify" } }, -- fortan90
-	-- fortran77 = { { "fprettify", "fprettify" } }, -- fortan90
 	fortran = { { "fprettify", "fprettify" } }, -- fortan90
+	fortran90 = { { "fprettify", "fprettify" } }, -- fortan90
+	-- fortran77 = { { "fprettify", "fprettify" } }, -- fortan77
+	xml = { { "xmlformatter", "xmlformatter" } }, -- xml
 }
 
 M.other_lsp_tools = {
