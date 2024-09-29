@@ -5,7 +5,7 @@ if vim.g.os_name == "Windows" then
 	local vault_path = vim.fn.expand("~") .. "\\OneDrive\\Documents\\2_Obsidian_Vault\\"
 end
 
-local not_for_systems = { "wslDesktop", "wslLaptop", "wslMaerz" }
+local not_for_systems = { "wslDesktop", "wslLaptop", "wslMaerz", "msys2" }
 
 local enabled = true
 local plugin = {
@@ -79,8 +79,9 @@ local plugin = {
 		end,
 	},
 }
+-- disabled for wsl and MSYS2 systems
 for _, system in pairs(not_for_systems) do
-	if system == os.getenv("MYSYSTEM") then
+	if system == os.getenv("MYSYSTEM") or vim.fn.getenv("MSYSTEM") then
 		enabled = false
 	end
 end
