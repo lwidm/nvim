@@ -18,3 +18,9 @@ vim.api.nvim_create_autocmd("FileType", {
 	pattern = { "c", "cpp", "h", "hpp" },
 	command = "setlocal tabstop=2 shiftwidth=2 expandtab",
 })
+
+-- fortran settings (3 spaces for tabs)
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = { "f", "f90", "f95" },
+	command = "setlocal tabstop=2 shiftwidth=2 expandtab",
+})
