@@ -53,6 +53,8 @@ M.lsp_servers = {
 	}, -- fortan90 and fortan77
 
 	lemminx = { "lemminx", {} },
+
+	matlab_ls = { "matlab_language_server", {} }, -- Matlab
 }
 -- index 0: Mason name
 -- index 1: Conform name
