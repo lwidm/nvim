@@ -19,7 +19,7 @@ local plugin = {
 				["<leader>gd"] = { name = "[G]it [D]iff", _ = "which_key_ignore" },
 				["<leader>gdg"] = { name = "[G]it [D]iff [G]et", _ = "which_key_ignore" },
 				["<leader>gdp"] = { name = "[G]it [D]iff [P]ut", _ = "which_key_ignore" },
-				["<leader>m"] = { name = "[M]arkdown", _ = "which_key_ignore" },
+				["<leader>m"] = { name = "[M]arkdown / [M]atlab", _ = "which_key_ignore" },
 
 				["<localleader>l"] = { name = "[L]atex", _ = "which_key_ignore" },
 

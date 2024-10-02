@@ -23,6 +23,7 @@ local plugin = {
 				"vimdoc",
 				"nix",
 				"fortran",
+				"matlab",
 			},
 			ignore_install = { "latex" },
 			auto_install = true,
