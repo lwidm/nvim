@@ -88,7 +88,6 @@ git clone https://github.com/lwidm/nvim $env:LOCALAPPDATA\nvim\
 1. Download the GnuWin32 package for Make from [here](https://gnuwin32.sourceforge.net/packages/make.htm).
 2. Install Make by running the installer.
 3. Add Make to your system PATH. The default installation path usually is: `C:\Program Files (x86)\GnuWin32\bin`. 1. install make
-4. Install clang (using visual studio)
 
 #### 6. Install CMake
 
