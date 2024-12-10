@@ -95,7 +95,11 @@ git clone https://github.com/lwidm/nvim $env:LOCALAPPDATA\nvim\
 2. Install CMake by running the installer.
 3. Make sure CMake is added to your system PATH (this should happen during the installation process)
 
-#### 7. Install clang, clangd and msvc using latest release of **Visual Studio Community Edition**
+#### 7. Install zig compiler
+- follow guide on [official website](https://ziglang.org/learn/getting-started/#installing-zig)
+- I recommand winget: `winget install -e --id zig.zig`
+
+#### 8. Install clang, clangd and msvc using latest release of **Visual Studio Community Edition**
 
 1. Download latest release of **Visual Studio Community Edition** from [here](https://visualstudio.microsoft.com)
 2. Open the _Visual Studio Installer_ and go to the _Individual components_ tab
@@ -123,14 +127,14 @@ git clone https://github.com/lwidm/nvim $env:LOCALAPPDATA\nvim\
 - CC: `C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\Llvm\bin\clang.exe`
 - CXX: `C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\Llvm\bin\clang++.exe`
 
-#### 8. Install clangd (maybe the previous step already does this):
+#### 9. Install clangd (maybe the previous step already does this):
 
-#### 9. Install Rust (cargo) and add it to path
+#### 10. Install Rust (cargo) and add it to path
 
 1. Install Rust by following the instructions on the [official Rust website](https://doc.rust-lang.org/cargo/getting-started/installation.html).
 2. During installation, you might need to install C++ tools from Visual Studio. If prompted, follow the instructions to install the necessary components.
 
-#### 10. Install ripgrep
+#### 11. Install ripgrep
 
 run the following command:
 
@@ -138,16 +142,16 @@ run the following command:
 winget install BurntSushi.ripgrep.MSVC
 ```
 
-#### 11. Install SumatraPDF
+#### 12. Install SumatraPDF
 
 1. Install from [the official webiste](https://www.sumatrapdfreader.org/download-free-pdf-viewer)
 2. Add binaries to PATH (typically found at `~\AppData\Local\sumatraPDF`)
 
-#### 12. Add Mason binaries to path
+#### 13. Add Mason binaries to path
 
 (usally located at C:\Users\lukas\AppData\Local\nvim-data\mason\bin)
 
-#### 13. Install GNU diffutils (for undotree)
+#### 14. Install GNU diffutils (for undotree)
 
 ### Issues
 
