@@ -1,6 +1,6 @@
 -- lua/lwidm/plugins/nvim-tree.lua
 
-local enabled = true
+local enabled = false
 local plugin = {
 	-- nvim-tree
 	{
