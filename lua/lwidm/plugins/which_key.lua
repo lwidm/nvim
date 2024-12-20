@@ -27,7 +27,7 @@ local plugin = {
 				{ "<leader>r", desc = "[R]ename" },
 				{ "<leader>s", group = "[S]earch" },
 				{ "<leader>l", group = "[L]anguage" },
-				{ "<leader>t", group = "[T]rouble" },
+				{ "<leader>t", group = "[T]rouble / [T]erminal" },
 				{ "<leader>g", group = "[G]it" },
 				{ "<leader>gd", group = "[G]it [D]iff" },
 				{ "<leader>gdg", group = "[G]it [D]iff [G]et" },
@@ -48,6 +48,11 @@ local plugin = {
 				-- Macro record
 				{ "q", group = "Record Macro" },
 				{ "qa", desc = "Record Macro: a" }, -- Example
+
+				-- Terminal
+				{ "<leader>tc", group = "[T]erminal [C]make" },
+				{ "<leader>tcc", group = "[T]erminal [C]make [C]onfigure" },
+				{ "<leader>tcb", group = "[T]erminal [C]make [B]uild" },
 			})
 		end,
 	},

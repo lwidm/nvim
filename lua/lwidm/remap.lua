@@ -43,7 +43,7 @@ vim.keymap.set("n", "n", "nzzzv", { desc = "goto [N]ext search term" })
 vim.keymap.set("n", "N", "Nzzzv", { desc = "goto previous search term" })
 
 -- paste over without loosing previous yank
-vim.keymap.set("x", "<leader>p", '"_dP', { desc = "[P]aste over without loosing yank" })
+vim.keymap.set("x", "<leader>p", '"0dP', { desc = "[P]aste over without loosing yank" })
 
 -- LSP keymaps
 vim.api.nvim_create_autocmd("LspAttach", {
