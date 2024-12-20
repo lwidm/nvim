@@ -35,8 +35,9 @@ local plugin = {
 			indent = { enable = true, disable = { "ruby" } },
 		},
 		config = function(_, opts)
-			if (vim.g.os_name == "Windows") then
-				require ('nvim-treesitter.install').compilers = { 'zig' }
+			-- require("nvim-treesitter.install").prefer_git = false
+			if vim.g.os_name == "Windows" then
+				require("nvim-treesitter.install").compilers = { "zig", "clang", "cl" }
 			end
 			---@diagnostic disable-next-line: missing-fields
 			require("nvim-treesitter.configs").setup(opts)

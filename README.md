@@ -95,9 +95,12 @@ git clone https://github.com/lwidm/nvim $env:LOCALAPPDATA\nvim\
 2. Install CMake by running the installer.
 3. Make sure CMake is added to your system PATH (this should happen during the installation process)
 
-#### 7. Install zig compiler
-- follow guide on [official website](https://ziglang.org/learn/getting-started/#installing-zig)
-- I recommand winget: `winget install -e --id zig.zig`
+#### 7. Compilers for treesitter
+- zig
+    - follow guide on [official website](https://ziglang.org/learn/getting-started/#installing-zig)
+    - I recommand winget: `winget install -e --id zig.zig`
+- zig
+    - in elevated PowerShell type: `winget install llvm`
 
 #### 8. Install clang, clangd and msvc using latest release of **Visual Studio Community Edition**
 
