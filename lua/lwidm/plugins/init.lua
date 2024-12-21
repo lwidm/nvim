@@ -46,8 +46,6 @@ local plugin = {
 		end,
 	},
 
-	{ "preservim/tagbar" },
-
 	-- vim-visual-multi
 	{ "mg979/vim-visual-multi" },
 

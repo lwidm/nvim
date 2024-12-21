@@ -1,4 +1,4 @@
--- lua/lwidm/plugins/obsidian.lua
+-- lua/lwidm/plugins/oil.lua
 
 local enabled = true
 local plugin = {

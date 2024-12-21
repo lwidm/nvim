@@ -1,6 +1,6 @@
 -- lua/lwidm/plugins/true-zen.lua
 
-local enabled = true
+local enabled = false
 local plugin = {
 	{
 		"Pocco81/true-zen.nvim",

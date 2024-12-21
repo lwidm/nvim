@@ -1,6 +1,6 @@
 -- lua/lwidm/plugins/noice.lua
 
-local enabled = true
+local enabled = false
 local plugin = {
 	{
 		"folke/noice.nvim",

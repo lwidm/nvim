@@ -37,6 +37,7 @@ Currently this config supports the following languages:
 - ripgrep
 - GNU diffutils
 - latexmk (can be installed through texliveFull)
+- lazygit
 
 ### Linux prerequisites
 
@@ -96,11 +97,12 @@ git clone https://github.com/lwidm/nvim $env:LOCALAPPDATA\nvim\
 3. Make sure CMake is added to your system PATH (this should happen during the installation process)
 
 #### 7. Compilers for treesitter
+
 - zig
-    - follow guide on [official website](https://ziglang.org/learn/getting-started/#installing-zig)
-    - I recommand winget: `winget install -e --id zig.zig`
+  - follow guide on [official website](https://ziglang.org/learn/getting-started/#installing-zig)
+  - I recommand winget: `winget install -e --id zig.zig`
 - zig
-    - in elevated PowerShell type: `winget install llvm`
+  - in elevated PowerShell type: `winget install llvm`
 
 #### 8. Install clang, clangd and msvc using latest release of **Visual Studio Community Edition**
 
@@ -154,7 +156,13 @@ winget install BurntSushi.ripgrep.MSVC
 
 (usally located at C:\Users\lukas\AppData\Local\nvim-data\mason\bin)
 
-#### 14. Install GNU diffutils (for undotree)
+#### 14. Install lazygit
+
+```PowerShell
+winget install lazygit
+```
+
+#### 15. Install GNU diffutils (for undotree)
 
 ### Issues
 
