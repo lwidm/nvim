@@ -66,7 +66,7 @@ MYSYSTEM = WinDesktop
 ### debian
 
 ```zsh
-sudo apt install nodejs npm make cmake clang cland ripgrep 
+sudo apt install nodejs npm make cmake clang clangd ripgrep texlive-full zathura
 ```
 rustup:
 ```
