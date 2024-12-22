@@ -41,7 +41,7 @@ Currently this config supports the following languages:
 
 ### Linux prerequisites
 
-- zanthura
+- zathura
 
 ### Windows prerequisites
 
@@ -62,6 +62,17 @@ Currently this config supports the following languages:
 add environment variable `MYSYSTEM`
 example:
 MYSYSTEM = WinDesktop
+
+### debian
+
+```zsh
+sudo apt install nodejs npm make cmake clang cland ripgrep 
+```
+rustup:
+```
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+```
+Make sure the `~/.cargo/bin` has been added to path
 
 ### windows
 
