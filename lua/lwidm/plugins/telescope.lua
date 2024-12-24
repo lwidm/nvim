@@ -38,9 +38,17 @@ local plugin = {
 				defaults = {
 					file_ignore_patterns = {
 						".git",
+						"^%.git/",
+						"^node_modules/",
 						".mypy_cache",
 						"__pycache__",
 						".spyproject",
+						"^%.cache/",
+					},
+				},
+				pickers = {
+					find_files = {
+						hidden = true,
 					},
 				},
 			})

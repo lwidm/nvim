@@ -74,14 +74,18 @@ M.other_lsp_tools = {
 	"ruff", -- python: linter and formatter
 }
 
-if vim.g.os_name == "Linux" then
-	M.lsp_servers = vim.tbl_deep_extend("error", M.lsp_servers, {
-		nil_ls = { "nil", {} }, -- nix
-	})
-	M.format_servers = vim.tbl_deep_extend("error", M.format_servers, {
-		nix = { { "nixfmt", "nixfmt" }, { "nixpkgs-fmt", "nixpkgs-fmt" } }, -- nix
-	})
+local nixSystems = {"wslLaptop", "wslDesktop", "Desktop", "Laptop"};
+for _, system in pairs(nixSystems) do
+	if system == os.getenv("MYSYSTEM") then
+		M.lsp_servers = vim.tbl_deep_extend("error", M.lsp_servers, {
+			nil_ls = { "nil", {} }, -- nix
+		})
+		M.format_servers = vim.tbl_deep_extend("error", M.format_servers, {
+			nix = { { "nixfmt", "nixfmt" }, { "nixpkgs-fmt", "nixpkgs-fmt" } }, -- nix
+		})
+	end
 end
+
 -- function to convert the format_servers table to its mason or conform version
 function M.transform_format_servers(format_servers, mason_table)
 	local transformed = {}

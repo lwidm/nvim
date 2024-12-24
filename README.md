@@ -42,6 +42,8 @@ Currently this config supports the following languages:
 ### Linux prerequisites
 
 - zathura
+#### Debian
+- python3.12-venv 
 
 ### Windows prerequisites
 
@@ -66,7 +68,7 @@ MYSYSTEM = WinDesktop
 ### debian
 
 ```zsh
-sudo apt install nodejs npm make cmake clang clangd ripgrep texlive-full zathura
+sudo apt install nodejs npm make cmake clang clangd ripgrep texlive-full zathura python3.12-venv
 ```
 rustup:
 ```
