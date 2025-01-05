@@ -40,6 +40,8 @@ local plugin = {
 							local options = lsp_serverlist.lsp_servers[server_name] or {}
 							options[2].capabilities =
 								vim.tbl_deep_extend("force", {}, capabilities, options[2].capabilities or {})
+							-- Set timeout here
+							options[2].flags = { debounce_text_changes = 150, timeout = 5000 }
 							require("lspconfig")[server_name].setup({ options[2] })
 						end
 					end,

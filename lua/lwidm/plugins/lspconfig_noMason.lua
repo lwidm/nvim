@@ -30,6 +30,7 @@ local plugin = {
 						vim.tbl_deep_extend("force", capabilities, require("cmp_nvim_lsp").default_capabilities())
 					options[2].capabilities =
 						vim.tbl_deep_extend("force", {}, capabilities, options[2].capabilities or {})
+					options[2].flags = { debounce_text_changes = 150, timeout = 5000 }
 					require("lspconfig")[server_name].setup({ options[2] })
 				end
 			end
