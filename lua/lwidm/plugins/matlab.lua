@@ -1,6 +1,6 @@
 -- lua/lwidm/plugins/matlab.lua
 
-local enabled = false
+local enabled = true
 local plugin = {
 	{
 		"Rahlir/nvim-matlab",
