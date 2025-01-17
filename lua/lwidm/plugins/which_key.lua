@@ -53,6 +53,9 @@ local plugin = {
 				{ "<leader>tc", group = "[T]erminal [C]make" },
 				{ "<leader>tcc", group = "[T]erminal [C]make [C]onfigure" },
 				{ "<leader>tcb", group = "[T]erminal [C]make [B]uild" },
+
+				-- Magma
+				{ "<locallleader>r", group = "Magma (jupyter)" },
 			})
 		end,
 	},

@@ -42,8 +42,10 @@ Currently this config supports the following languages:
 ### Linux prerequisites
 
 - zathura
+
 #### Debian
-- python3.12-venv 
+
+- python3.12-venv
 
 ### Windows prerequisites
 
@@ -65,15 +67,29 @@ add environment variable `MYSYSTEM`
 example:
 MYSYSTEM = WinDesktop
 
+#### Magma
+
+use `pip3` instead of `pip` in all cases
+
+- pynvim: `pip3 install pynvim`
+- jupyter_client: [Guide](https://github.com/jupyter/jupyter_client)
+- Pillow: [Guide](https://pillow.readthedocs.io/en/latest/installation/basic-installation.html)
+- cairosvg: [Guide](https://cairosvg.org/)
+- pnglatex: [Guide](https://pypi.org/project/pnglatex/)
+- pip3 install plotly kaleido pyperclip
+
 ### debian
 
 ```zsh
 sudo apt install nodejs npm make cmake clang clangd ripgrep texlive-full zathura python3.12-venv
 ```
+
 rustup:
+
 ```
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 ```
+
 Make sure the `~/.cargo/bin` has been added to path
 
 ### windows
