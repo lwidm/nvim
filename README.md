@@ -38,14 +38,15 @@ Currently this config supports the following languages:
 - GNU diffutils
 - latexmk (can be installed through texliveFull)
 - lazygit
+- python3
+- python3-venv (not sure if this is linux (debian) specific)
+  - python3.12-venv (should be installed through `python3-venv`)
 
 ### Linux prerequisites
 
 - zathura
 
 #### Debian
-
-- python3.12-venv
 
 ### Windows prerequisites
 
