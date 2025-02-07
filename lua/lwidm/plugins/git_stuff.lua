@@ -14,7 +14,9 @@ local plugin = {
 			"ibhagwan/fzf-lua", -- optional
 			"echasnovski/mini.pick", -- optional
 		},
-		config = true,
+		config = function()
+			vim.keymap.set("n", "<leader>gn", ":Neogit kind=floating<CR>", { desc = "[G]it status using [N]eogit" })
+		end,
 	},
 
 	-- Use :Git for git commands in neovim
