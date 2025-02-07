@@ -11,20 +11,18 @@ local plugin = {
 			local null_ls = require("null-ls")
 			local sources = {}
 			if vim.fn.executable("mypy") == 1 then
-				if vim.g.os_name == "Windows" then
-					table.insert(
-						sources,
-						null_ls.builtins.diagnostics.mypy.with({
-							extra_args = function()
-								local virtual = os.getenv("VIRTUAL_ENV") or os.getenv("CONDA_PREFIX") or "/usr"
-								return { "--python-executable", virtual .. "\\python.exe" }
-							end,
-						})
-					)
-				else
-					table.insert(sources, null_ls.builtins.diagnostics.mypy)
-					-- TODO : maybe same thing as for windows but with the correct slashes
-				end
+				table.insert(
+					sources,
+					null_ls.builtins.diagnostics.mypy.with({
+						extra_args = function()
+							local virtual = os.getenv("VIRTUAL_ENV") or os.getenv("CONDA_PREFIX") or "/usr"
+							return { "--python-executable", virtual .. "\\python.exe" }
+						end,
+					})
+				)
+			else
+				table.insert(sources, null_ls.builtins.diagnostics.mypy)
+				-- TODO : maybe same thing as for windows but with the correct slashes
 			end
 			if vim.fn.executable("ruff") == 1 then
 				table.insert(sources, null_ls.builtins.diagnostics.ruff)
