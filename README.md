@@ -38,14 +38,32 @@ Currently this config supports the following languages:
 - GNU diffutils
 - latexmk (can be installed through texliveFull)
 - lazygit
+- python3
+- python3-venv (not sure if this is linux (debian) specific)
+  - python3.12-venv (should be installed through `python3-venv`)
+- zip/unzip
+
+#### e.g. on arch:
+
+- Using pacman to install the bulk of the dependencies
+
+```zsh
+sudo pacman -S nodejs npm make cmake clang clang-tools-extra rustup ripgrep diffutils lazygit python zathura  texlive-core texlive-bin python3 zip unzip
+```
+
+- After installing rustup run:
+
+```zsh
+rustup default stable
+```
+
+- install lazygit
 
 ### Linux prerequisites
 
 - zathura
 
 #### Debian
-
-- python3.12-venv
 
 ### Windows prerequisites
 

@@ -3,6 +3,22 @@
 local enabled = true
 local plugin = {
 
+	{
+		"NeogitOrg/neogit",
+		dependencies = {
+			"nvim-lua/plenary.nvim", -- required
+			"sindrets/diffview.nvim", -- optional - Diff integration
+
+			-- Only one of these is needed.
+			"nvim-telescope/telescope.nvim", -- optional
+			"ibhagwan/fzf-lua", -- optional
+			"echasnovski/mini.pick", -- optional
+		},
+		config = function()
+			vim.keymap.set("n", "<leader>gn", ":Neogit kind=floating<CR>", { desc = "[G]it status using [N]eogit" })
+		end,
+	},
+
 	-- Use :Git for git commands in neovim
 	{
 		"tpope/vim-fugitive",
