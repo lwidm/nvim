@@ -23,7 +23,7 @@ local plugin = {
 								or "/usr"
 							-- Use OS-appropriate path separator
 							local python_executable = virtual
-								.. (package.config:sub(1, 1) == "\\" and "\\python.exe" or "/bin/python")
+								.. (package.config:sub(1, 1) == "\\" and "\\Scripts\\python.exe" or "/bin/python")
 							return { "--python-executable", python_executable }
 						end,
 					})

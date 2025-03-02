@@ -1,5 +1,3 @@
--- lua/lwidm/plugins/auto_format.lua
-
 local enabled = true
 local plugin = {
 	-- Autoformat
@@ -9,9 +7,7 @@ local plugin = {
 		require("conform").setup({
 			notify_on_error = true,
 			format_on_save = function(bufnr)
-				-- Disable "format_on_save lsp_fallback" for languages thst don't have a well standardized coding style
-				-- local disable_filetypes = { c = true, cpp = true }
-				local disable_filetypes = { c = true }
+				local disable_filetypes = { c = true, cpp = true }
 				return {
 					timeout_ms = 1000,
 					lsp_fallback = not disable_filetypes[vim.bo[bufnr].filetype],
@@ -19,10 +15,24 @@ local plugin = {
 			end,
 			formatters_by_ft = lsp_serverlist.transform_format_servers(lsp_serverlist.format_servers, false),
 		})
-		-- stylua: ignore
-		vim.keymap.set("n", "<leader>f", function() require("conform").format({timeout_ms=10000}) end, { desc = " [F]ormat" })
+
+		-- Override Python formatter to use Black with a custom python executable path
+		-- require("conform").formatters.black = function(bufnr)
+		-- local virtual = os.getenv("VIRTUAL_ENV") or os.getenv("CONDA_PREFIX") or os.getenv("PREFIX") or "/usr"
+		-- local sep = package.config:sub(1, 1)
+		-- local python_executable = virtual .. (sep == "\\" and "\\python.exe" or "/bin/python")
+		-- return {
+		-- command = "black",
+		-- args = { "--python-executable", python_executable, "-" },
+		-- }
+		-- end
+
+		vim.keymap.set("n", "<leader>f", function()
+			require("conform").format({ timeout_ms = 10000 })
+		end, { desc = " [F]ormat" })
 	end,
 }
+
 if enabled then
 	return plugin
 else
