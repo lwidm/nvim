@@ -1,6 +1,6 @@
 -- lua/lwidm/plugins/null-ls.lua
 
-local enabled = true
+local enabled = false
 local plugin = {
 	-- null-ls
 	{
