@@ -74,7 +74,7 @@ M.other_lsp_tools = {
 	"ruff", -- python: linter and formatter
 }
 
-local nixSystems = {"wslLaptop", "wslDesktop", "Desktop", "Laptop"};
+local nixSystems = { "wslLaptop", "wslDesktop", "Desktop", "Laptop" }
 for _, system in pairs(nixSystems) do
 	if system == os.getenv("MYSYSTEM") then
 		M.lsp_servers = vim.tbl_deep_extend("error", M.lsp_servers, {
