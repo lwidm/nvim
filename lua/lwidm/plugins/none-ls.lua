@@ -17,13 +17,24 @@ local plugin = {
 					sources,
 					none_ls.builtins.diagnostics.mypy.with({
 						extra_args = function()
-							local virtual = os.getenv("VIRTUAL_ENV")
-								or os.getenv("CONDA_PREFIX")
-								or os.getenv("PREFIX")
-								or "/usr"
-							-- Use OS-appropriate path separator
-							local python_executable = virtual
-								.. (package.config:sub(1, 1) == "\\" and "\\Scripts\\python.exe" or "/bin/python")
+							local virtual_env = os.getenv("VIRTUAL_ENV")
+							local conda_prefix = os.getenv("CONDA_PREFIX")
+							local prefix = os.getenv("PREFIX")
+
+							-- Determine environment type
+							local virtual = virtual_env or conda_prefix or prefix or "/usr"
+							local is_windows = package.config:sub(1, 1) == "\\"
+							local is_conda = conda_prefix and (virtual == conda_prefix)
+								or (prefix and (virtual == prefix))
+
+							-- Set Python path based on environment type and OS
+							local python_executable
+							if is_conda and is_windows then
+								python_executable = virtual .. "\\python.exe"
+							else
+								python_executable = virtual .. (is_windows and "\\Scripts\\python.exe" or "/bin/python")
+							end
+
 							return { "--python-executable", python_executable }
 						end,
 					})

@@ -59,3 +59,21 @@ require("lwidm.fortran").setup()
 require("lwidm.terminal")
 
 require("lwidm.auto_update")()
+
+vim.api.nvim_create_user_command("ClearNvimCache", function()
+	local data_dir = vim.fn.stdpath('data')
+	local state_dir = vim.fn.stdpath('state')
+
+	local targets = {
+		data_dir ..  '/rplugin.vim',
+		state_dir .. '/shada/*',
+	}
+
+	local deleted = 0
+	for _, path in ipairs(targets) do
+		if vim.fn.delete(path, 'rf') == 0 then
+			deleted = deleted + 1
+		end
+	end
+	vim.notify(('Deleted %d cache items. Restart Neovim!'):format(deleted), vim.log.levels.INFO)
+end, {})
