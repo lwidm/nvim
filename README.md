@@ -70,6 +70,15 @@ rustup default stable
 - sumatraPDF
   - you need to add it to PATH (typically under `~\AppData\Local\SumatraPDF`
 
+## vim-jukit
+-  Make sure `python3` is executalbe (for e.g. through alias in powershell-profile at `([System.IO.Path]::GetDirectoryName($PROFILE))`)
+    `New-Alias -Name python3 -Value python`
+- Make sure python is available to neovim
+  ```zsh
+  pip install pynvim
+  ```
+
+
 ## non lazy - priority loading
 
 | plugin                        | file path                       | priority |

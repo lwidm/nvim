@@ -2,14 +2,17 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = ","
 
+-- Get OS 
+local get_os_name = require("lwidm.get_os_name")
+vim.g.os_name = get_os_name()
+
 -- Set to true if you have a Nerd Font installed
 vim.g.have_nerd_font = true
 
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
-local get_os_name = require("lwidm.get_os_name")
-vim.g.os_name = get_os_name()
+
 vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.mouse = "a"
@@ -61,19 +64,19 @@ require("lwidm.terminal")
 require("lwidm.auto_update")()
 
 vim.api.nvim_create_user_command("ClearNvimCache", function()
-	local data_dir = vim.fn.stdpath('data')
-	local state_dir = vim.fn.stdpath('state')
+	local data_dir = vim.fn.stdpath("data")
+	local state_dir = vim.fn.stdpath("state")
 
 	local targets = {
-		data_dir ..  '/rplugin.vim',
-		state_dir .. '/shada/*',
+		data_dir .. "/rplugin.vim",
+		state_dir .. "/shada/*",
 	}
 
 	local deleted = 0
 	for _, path in ipairs(targets) do
-		if vim.fn.delete(path, 'rf') == 0 then
+		if vim.fn.delete(path, "rf") == 0 then
 			deleted = deleted + 1
 		end
 	end
-	vim.notify(('Deleted %d cache items. Restart Neovim!'):format(deleted), vim.log.levels.INFO)
+	vim.notify(("Deleted %d cache items. Restart Neovim!"):format(deleted), vim.log.levels.INFO)
 end, {})

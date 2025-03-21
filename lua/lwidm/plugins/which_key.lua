@@ -54,8 +54,15 @@ local plugin = {
 				{ "<leader>tcc", group = "[T]erminal [C]make [C]onfigure" },
 				{ "<leader>tcb", group = "[T]erminal [C]make [B]uild" },
 
-				-- Magma
-				{ "<locallleader>r", group = "Magma (jupyter)" },
+				-- jupyter
+				{ "<localleader>r", group = "Magma (jupyter)" },
+				{ "<localleader>j", group = "[J]upyter" },
+				{ "<localleader>jh", group = "[J]upyter [H]istory" },
+				{ "<localleader>jso", group = "[J]upyter [S]how [O]utput / [S]end / [S]plit terminal" },
+				{ "<localleader>jC", group = "[J]upyter [C]lose" },
+				{ "<localleader>jC", group = "[J]upyter [D]elete" },
+				{ "<localleader>jH", group = "[J]upyter convert to [H]tml" },
+				{ "<localleader>jP", group = "[J]upyter convert to [P]df" },
 			})
 		end,
 	},
