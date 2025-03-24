@@ -23,16 +23,24 @@ local plugin = {
 
 							-- Determine environment type
 							local virtual = virtual_env or conda_prefix or prefix or "/usr"
-							local is_windows = package.config:sub(1, 1) == "\\"
+							local is_windows = (vim.g.os_name == "Windows")
 							local is_conda = conda_prefix and (virtual == conda_prefix)
 								or (prefix and (virtual == prefix))
 
 							-- Set Python path based on environment type and OS
 							local python_executable
-							if is_conda and is_windows then
-								python_executable = virtual .. "\\python.exe"
+							if is_conda then
+								if is_windows then
+									python_executable = virtual .. "\\python.exe"
+								else
+									python_executable = virtual .. "/python"
+								end
 							else
-								python_executable = virtual .. (is_windows and "\\Scripts\\python.exe" or "/bin/python")
+								if is_windows then
+									python_executable = virtual .. "\\Scripts\\python.exe"
+								else
+									python_executable = virtual .. "/bin/python"
+								end
 							end
 
 							return { "--python-executable", python_executable }

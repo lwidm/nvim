@@ -60,6 +60,7 @@ require("lwidm.remap")
 require("lwidm.lazy")
 require("lwidm.fortran").setup()
 require("lwidm.terminal")
+require("lwidm.jupytext").setup()
 
 require("lwidm.auto_update")()
 
