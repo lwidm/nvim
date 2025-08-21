@@ -48,7 +48,7 @@ Currently this config supports the following languages:
 - Using pacman to install the bulk of the dependencies
 
 ```zsh
-sudo pacman -S nodejs npm make cmake clang clang-tools-extra rustup ripgrep diffutils lazygit python zathura  texlive-core texlive-bin python3 zip unzip
+sudo pacman -S nodejs npm make cmake clang clang-tools-extra rustup ripgrep diffutils lazygit python zathura  texlive-full python3 zip unzip
 ```
 
 - After installing rustup run:
