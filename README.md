@@ -43,7 +43,27 @@ Currently this config supports the following languages:
   - python3.12-venv (should be installed through `python3-venv`)
 - zip/unzip
 
-#### e.g. on arch:
+### Linux prerequisites
+
+- zathura
+- lazygit
+
+#### Debian
+```zsh
+sudo apt update
+sudo apt install -y \
+  nodejs npm make cmake clang clang-tools \
+  ripgrep diffutils python3 python3-pip \
+  zathura texlive-full zip unzip
+```
+install rustup
+```zsh
+cd ~/Downloads
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+```
+manually install lazygit
+
+#### Arch:
 
 - Using pacman to install the bulk of the dependencies
 
@@ -57,13 +77,6 @@ sudo pacman -S nodejs npm make cmake clang clang-tools-extra rustup ripgrep diff
 rustup default stable
 ```
 
-- install lazygit
-
-### Linux prerequisites
-
-- zathura
-
-#### Debian
 
 ### Windows prerequisites
 
