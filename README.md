@@ -35,6 +35,7 @@ Currently this config supports the following languages:
 - clangd
 - rust (cargo/rustup)
 - ripgrep
+- fd
 - GNU diffutils
 - latexmk (can be installed through texliveFull)
 - lazygit
@@ -53,7 +54,7 @@ Currently this config supports the following languages:
 sudo apt update
 sudo apt install -y \
   nodejs npm make cmake clang clang-tools \
-  ripgrep diffutils python3 python3-pip \
+  ripgrep fd diffutils python3 python3-pip \
   zathura texlive-full zip unzip
 ```
 install rustup
@@ -68,7 +69,7 @@ manually install lazygit
 - Using pacman to install the bulk of the dependencies
 
 ```zsh
-sudo pacman -S nodejs npm make cmake clang clang-tools-extra rustup ripgrep diffutils lazygit python zathura  texlive-full python3 zip unzip
+sudo pacman -S nodejs npm make cmake clang clang-tools-extra rustup ripgrep fd diffutils lazygit python zathura  texlive-full python3 zip unzip
 ```
 
 - After installing rustup run:
