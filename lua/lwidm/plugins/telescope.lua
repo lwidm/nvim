@@ -61,6 +61,13 @@ local plugin = {
 			vim.keymap.set("n", "<leader>sh", builtin.help_tags, { desc = "[S]earch [H]elp" })
 			vim.keymap.set("n", "<leader>sk", builtin.keymaps, { desc = "[S]earch [K]eymaps" })
 			vim.keymap.set("n", "<leader>sf", builtin.find_files, { desc = "[S]earch [F]iles" })
+			vim.keymap.set('n', '<leader>sF', function()
+				builtin.find_files({
+					find_command = {
+						"fd", "--type", "f", "--hidden", "--no-ignore", "--strip-cwd-prefix"
+					}
+				})
+			end, { desc = "[S]earch all [F]iles (no .gitignore)" })
 			vim.keymap.set("n", "<leader>ss", builtin.builtin, { desc = "[S]earch [S]elect Telescope" })
 			vim.keymap.set('v', "<leader>ss", 'y<ESC>:Telescope live_grep default_text=<c-r>0<CR>', { desc = "[S]earch [S]election" })
 			vim.keymap.set("n", "<leader>sw", builtin.grep_string, { desc = "[S]earch current [W]ord" })
