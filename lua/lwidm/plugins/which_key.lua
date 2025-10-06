@@ -65,6 +65,10 @@ local plugin = {
 				-- { "<localleader>jC", group = "[J]upyter [D]elete" },
 				-- { "<localleader>jH", group = "[J]upyter convert to [H]tml" },
 				-- { "<localleader>jP", group = "[J]upyter convert to [P]df" },
+				
+				-- goto
+				{ "[", group = "Go to next" },
+				{ "]", group = "Go to previous" },
 			})
 		end,
 	},
