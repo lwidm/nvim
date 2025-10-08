@@ -1,6 +1,6 @@
 -- lua/lwidm/plugins/markdown.lua
 
-local enabled = true
+local enabled = false
 local plugin = {
 
 	{
