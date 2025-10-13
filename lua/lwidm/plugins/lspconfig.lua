@@ -1,7 +1,7 @@
 -- lua/lwidm/plugins/lspconfig.lua
 
 local enabled = true
-local not_for_systems = { "wslDesktop", "wslLaptop", "wslMaerz", "Desktop", "Laptop" }
+local not_for_systems = { "wslNixDesktop", "wslNixLaptop", "wslNixMaerz", "NixDesktop", "NixLaptop" }
 
 local plugin = {
 
@@ -18,7 +18,13 @@ local plugin = {
 			local signs = { Error = "", Warn = "", Hint = "", Info = "" }
 			for type, icon in pairs(signs) do
 				local hl = "DiagnosticSign" .. type
-				vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
+				vim.diagnostic.config({
+					signs = {
+						active = {
+							[hl] = { text = icon, texthl = hl, numhl = hl },
+						},
+					},
+				})
 			end
 
 			local capabilities = vim.lsp.protocol.make_client_capabilities()
@@ -27,37 +33,26 @@ local plugin = {
 			local lsp_serverlist = require("lwidm.lsp_serverlist")
 			require("mason").setup()
 			require("mason-tool-installer").setup({ ensure_installed = lsp_serverlist.ensure_installed })
-			require("mason-lspconfig").setup({
-				handlers = {
-					function(server_name)
-						local is_lspserver = false
-						for server, _ in pairs(lsp_serverlist.lsp_servers) do
-							if server_name == server then
-								is_lspserver = true
-							end
-						end
-						if is_lspserver then
-							local options = lsp_serverlist.lsp_servers[server_name] or {}
-							options[2].capabilities =
-								vim.tbl_deep_extend("force", {}, capabilities, options[2].capabilities or {})
-							-- Set timeout here
-							options[2].flags = { debounce_text_changes = 150, timeout = 5000 }
-							require("lspconfig")[server_name].setup({ options[2] })
-						end
-					end,
-					-- ['rust_analyzer'] = function ()
-					-- 	require('rust_tools').setup {}
-					-- end,
-				},
-			})
+
+			-- Configure each server explicitly
+			for server_name, config in pairs(lsp_serverlist.lsp_servers) do
+				local opts = vim.tbl_deep_extend("force", {}, config[2] or {})
+				opts.capabilities = vim.tbl_deep_extend("force", {}, capabilities, opts.capabilities or {})
+				opts.flags =
+					vim.tbl_deep_extend("force", { debounce_text_changes = 150, timeout = 5000 }, opts.flags or {})
+
+				require("lspconfig")[server_name].setup(opts)
+			end
 		end,
 	},
 }
+
 for _, system in pairs(not_for_systems) do
 	if system == os.getenv("MYSYSTEM") then
 		enabled = false
 	end
 end
+
 if enabled then
 	return plugin
 else

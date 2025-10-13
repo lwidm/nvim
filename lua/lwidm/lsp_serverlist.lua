@@ -7,7 +7,7 @@ local M = {}
 -- index 1: options list
 M.lsp_servers = {
 	clangd = { "clangd", {} }, -- c, cpp
-	codelldb = { "codelldb", {} }, -- c, cpp debugger
+	-- codelldb = { "codelldb", {} }, -- c, cpp debugger
 	rust_analyzer = { "rust_analyzer", {} }, -- rust
 	-- lua_ls = { "lua-language-server", {} }, -- lua
 	lua_ls = { "lua-language-server", {
@@ -15,7 +15,7 @@ M.lsp_servers = {
 	} }, -- lua
 	cmake = { "cmake-language-server", {} }, -- cmake
 	pyright = { "pyright", {} }, -- python
-	debugpy = { "debugpy", {} }, -- python debugging
+	-- debugpy = { "debugpy", {} }, -- python debugging
 	-- jsonls = {}, -- json
 	-- web
 	html = { "html-lsp", {} }, -- html
@@ -23,7 +23,7 @@ M.lsp_servers = {
 	ts_ls = { "typescript-language-server", {} }, -- javascript, typescript
 	tailwindcss = { "tailwindcss-language-server", {} }, -- tailwindcss
 	eslint = { "eslint-lsp", {} }, -- ESlint
-	prettierd = { "prettierd", {} }, -- Prettier as a daemon
+	-- prettierd = { "prettierd", {} }, -- Prettier as a daemon
 	-- intelephense = {}, -- php
 	texlab = {
 		"texlab",
