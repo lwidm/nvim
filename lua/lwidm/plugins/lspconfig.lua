@@ -34,14 +34,17 @@ local plugin = {
 			require("mason").setup()
 			require("mason-tool-installer").setup({ ensure_installed = lsp_serverlist.ensure_installed })
 
-			-- Configure each server explicitly
+			require("lspconfig")
+
+			-- Configure each server using the new vim.lsp.config API
 			for server_name, config in pairs(lsp_serverlist.lsp_servers) do
 				local opts = vim.tbl_deep_extend("force", {}, config[2] or {})
 				opts.capabilities = vim.tbl_deep_extend("force", {}, capabilities, opts.capabilities or {})
 				opts.flags =
 					vim.tbl_deep_extend("force", { debounce_text_changes = 150, timeout = 5000 }, opts.flags or {})
 
-				require("lspconfig")[server_name].setup(opts)
+				vim.lsp.config(server_name, opts)
+				vim.lsp.enable(server_name)
 			end
 		end,
 	},

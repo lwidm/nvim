@@ -43,10 +43,13 @@ Currently this config supports the following languages:
 - python3-venv (not sure if this is linux (debian) specific)
   - python3.12-venv (should be installed through `python3-venv`)
 - zip/unzip
+- sshfs
+- biber
 
 ### Linux prerequisites
 
 - zathura
+- xdotool (Zathura requires xdotool for forward search)
 - lazygit
 
 #### Debian
@@ -55,7 +58,8 @@ sudo apt update
 sudo apt install -y \
   nodejs npm make cmake clang clang-tools \
   ripgrep fd diffutils python3 python3-pip \
-  zathura texlive-full zip unzip
+  zathura texlive-full zip unzip sshfs fzf \
+  xdotool biber
 ```
 install rustup
 ```zsh
@@ -69,7 +73,7 @@ manually install lazygit
 - Using pacman to install the bulk of the dependencies
 
 ```zsh
-sudo pacman -S nodejs npm make cmake clang clang-tools-extra rustup ripgrep fd diffutils lazygit python zathura  texlive-full python3 zip unzip
+sudo pacman -S nodejs npm make cmake clang clang-tools-extra rustup ripgrep fd diffutils lazygit python zathura  texlive-full python3 zip unzip sshfs fzf xdotool biber
 ```
 
 - After installing rustup run:

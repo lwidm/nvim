@@ -69,6 +69,8 @@ local plugin = {
 				-- goto
 				{ "[", group = "Go to next" },
 				{ "]", group = "Go to previous" },
+
+				{ "<leader>r", group = "[R]emote sshfs" },
 			})
 		end,
 	},
