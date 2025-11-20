@@ -52,10 +52,6 @@ function M.apply_indent_from_clang_format(bufnr, filepath)
 	local cfg = find_upward(filepath, ".clang-format") or find_upward(filepath, "_clang-format")
 	if cfg then
 		local parsed = parse_clang_format(cfg)
-		vim.notify(
-			"Parsed clan format. Indent width: " .. parsed.indent_width .. ", use_tabs: " .. parsed.use_tab,
-			vim.log.levels.ERROR
-		)
 		if parsed and parsed.indent_width then
 			vim.api.nvim_buf_set_option(bufnr, "shiftwidth", parsed.indent_width)
 			vim.api.nvim_buf_set_option(bufnr, "tabstop", parsed.indent_width)
