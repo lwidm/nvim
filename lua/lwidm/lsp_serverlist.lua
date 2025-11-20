@@ -7,7 +7,6 @@ local M = {}
 -- index 1: options list
 M.lsp_servers = {
 	clangd = { "clangd", {} }, -- c, cpp
-	-- codelldb = { "codelldb", {} }, -- c, cpp debugger
 	rust_analyzer = { "rust_analyzer", {} }, -- rust
 	-- lua_ls = { "lua-language-server", {} }, -- lua
 	lua_ls = { "lua-language-server", {
@@ -15,7 +14,6 @@ M.lsp_servers = {
 	} }, -- lua
 	cmake = { "cmake-language-server", {} }, -- cmake
 	pyright = { "pyright", {} }, -- python
-	-- debugpy = { "debugpy", {} }, -- python debugging
 	-- jsonls = {}, -- json
 	-- web
 	html = { "html-lsp", {} }, -- html
@@ -75,6 +73,15 @@ M.other_lsp_tools = {
 	"ruff", -- python: linter and formatter
 }
 
+-- table id: server name
+-- index 0: Mason name
+-- index 1: options list
+M.dap = {
+	codelldb = { "codelldb", {} }, -- c, cpp debugger
+	cppdbg = { "cppdbg", {} }, -- c, cpp debugger
+	debugpy = { "debugpy", {} }, -- python debugging
+}
+
 local nixSystems = { "wslLaptop", "wslDesktop", "Desktop", "Laptop" }
 for _, system in pairs(nixSystems) do
 	if system == os.getenv("MYSYSTEM") then
@@ -114,6 +121,11 @@ for _, values in pairs(M.transform_format_servers(M.format_servers, true)) do
 end
 for _, value in ipairs(M.other_lsp_tools) do
 	table.insert(M.ensure_installed, value)
+end
+
+M.dap_ensure_installed = {}
+for key, _ in pairs(M.dap) do
+	table.insert(M.dap_ensure_installed, key)
 end
 
 return M

@@ -167,8 +167,9 @@ local plugin = {
 			"rcarriga/nvim-dap-ui",
 		},
 		config = function()
+			local lsp_serverlist = require("lwidm.lsp_serverlist")
 			require("mason-nvim-dap").setup({
-				ensure_installed = { "cppdbg" },
+				ensure_installed = lsp_serverlist.dap_ensure_installed,
 				automatic_installation = true,
 				handlers = {
 					function(config)

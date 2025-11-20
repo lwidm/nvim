@@ -40,7 +40,7 @@ vim.opt.splitbelow = true
 vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
-vim.expandtab = true
+vim.opt.expandtab = true
 
 vim.opt.swapfile = false
 vim.opt.backup = false
@@ -81,3 +81,5 @@ vim.api.nvim_create_user_command("ClearNvimCache", function()
 	end
 	vim.notify(("Deleted %d cache items. Restart Neovim!"):format(deleted), vim.log.levels.INFO)
 end, {})
+
+require("lwidm.clang_indent").setup()
