@@ -57,7 +57,7 @@ Currently this config supports the following languages:
 sudo apt update
 sudo apt install -y \
   nodejs npm make cmake clang clang-tools \
-  ripgrep fd diffutils python3 python3-pip \
+  ripgrep fd-find diffutils python3 python3-pip \
   zathura texlive-full zip unzip sshfs fzf \
   xdotool biber
 ```
