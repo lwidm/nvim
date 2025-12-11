@@ -1,7 +1,7 @@
 -- lua/lwidm/plugins/lsp_noMason.lua
 
 local enabled = true
-local for_systems = { "wslDesktop", "wslLaptop", "wslMaerz", "Desktop", "Laptop" }
+local for_systems = { "wslNixDesktop", "wslNixLaptop", "wslNixMaerz", "NixDesktop", "NixLaptop" }
 
 local plugin = {
 
