@@ -12,6 +12,7 @@ local plugin = {
 			"WhoIsSethDaniel/mason-tool-installer.nvim",
 			"williamboman/mason-lspconfig.nvim",
 			"j-hui/fidget.nvim",
+			"nvim-treesitter/nvim-treesitter",
 		},
 
 		config = function()

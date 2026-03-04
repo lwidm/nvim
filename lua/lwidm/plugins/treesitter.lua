@@ -42,8 +42,12 @@ local plugin = {
 			if vim.g.os_name == "Windows" then
 				require("nvim-treesitter.install").compilers = { "zig", "clang", "cl" }
 			end
-			---@diagnostic disable-next-line: missing-fields
-			require("nvim-treesitter.configs").setup(opts)
+			if pcall(require, "nvim-treesitter.configs") then
+				---@diagnostic disable-next-line: missing-fields
+				require("nvim-treesitter.configs").setup(opts)
+			else
+				require("nvim-treesitter").setup(opts)
+			end
 		end,
 	},
 }
