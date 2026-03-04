@@ -82,7 +82,7 @@ M.dap = {
 	debugpy = { "debugpy", {} }, -- python debugging
 }
 
-local nixSystems = { "wslLaptop", "wslDesktop", "Desktop", "Laptop" }
+local nixSystems = { "wslNixDesktop", "wslNixLaptop", "wslNixMaerz", "NixDesktop", "NixLaptop" }
 for _, system in pairs(nixSystems) do
 	if system == os.getenv("MYSYSTEM") then
 		M.lsp_servers = vim.tbl_deep_extend("error", M.lsp_servers, {

@@ -5,7 +5,7 @@ if vim.g.os_name == "Windows" then
 	local vault_path = vim.fn.expand("~") .. "\\OneDrive\\Documents\\2_Obsidian_Vault\\"
 end
 
-local not_for_systems = { "wslDesktop", "wslLaptop", "wslMaerz", "msys2" }
+local not_for_systems = { "wslDebianDesktop", "wslDebianLaptop", "wslMaerz", "msys2" }
 
 local enabled = true
 local plugin = {
