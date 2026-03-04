@@ -4,7 +4,7 @@ local enabled = true
 local plugin = {
 	{
 		"lervag/vimtex",
-		event = "VimEnter",
+		lazy = false,
 		init = function()
 			if vim.g.os_name == "Windows" then
 				vim.g.vimtex_view_method = "general"
