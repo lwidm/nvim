@@ -5,7 +5,7 @@ This repository sets up neovim for development, note taking and text editing. Th
 ## Clone
 
 ```zsh
-git clone https://github.com/lwidm/nvim ~/.config/nvim
+git clone git@github.com:lwidm/nvim.git ~/.config/nvim
 ```
 
 ## Supported languages
