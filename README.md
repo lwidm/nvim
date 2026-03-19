@@ -193,5 +193,38 @@ Reinstall the parser:
 ```
 Common ones: `lua`, `markdown`
 
+---
+
+## TreeSitter
+
+Since nvim-treesitter v1.0+, parsers are no longer auto-installed — use `:TSInstall` to install them manually and `:TSUpdate` to keep them up to date.
+
+### Recommended parsers
+
+**Languages**
+```
+:TSInstall python c cpp rust lua javascript typescript css html bash
+```
+
+**Config / data formats**
+```
+:TSInstall json yaml toml ini
+```
+
+**Neovim / editor internals**
+```
+:TSInstall vim vimdoc query regex comment
+```
+
+**Git**
+```
+:TSInstall gitcommit git_rebase gitignore git_config
+```
+
+**Build systems**
+```
+:TSInstall make cmake dockerfile
+```
+
 ### Fortran
 - fortran77 nvim-web-devicons not working

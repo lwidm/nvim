@@ -71,6 +71,7 @@ M.format_servers = {
 M.other_lsp_tools = {
 	"mypy", -- python: static typing
 	"ruff", -- python: linter and formatter
+	"tree-sitter-cli", -- required for nvim-treesitter v1.0+ parser installation
 }
 
 -- table id: server name
