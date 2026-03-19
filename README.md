@@ -193,6 +193,9 @@ Reinstall the parser:
 ```
 Common ones: `lua`, `markdown`
 
+### Telescope previewer error: `ft_to_lang (a nil value)`
+nvim-treesitter v1.0+ removed `ft_to_lang` from its parsers module, which telescope's previewer still calls. A compatibility shim is in place in `lua/lwidm/plugins/telescope.lua`. Once telescope ships a fix for this, the shim can be removed.
+
 ---
 
 ## TreeSitter

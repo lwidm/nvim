@@ -34,6 +34,33 @@ local plugin = {
 			{ "nvim-tree/nvim-web-devicons", lazy = false },
 		},
 		config = function()
+			-- COMPAT START: nvim-treesitter v1.0+ / telescope shim — remove once telescope
+			-- ships native support for nvim-treesitter v1.0+
+			local ok, ts_parsers = pcall(require, "nvim-treesitter.parsers")
+			if ok then
+				if not ts_parsers.ft_to_lang then
+					ts_parsers.ft_to_lang = function(ft)
+						return vim.treesitter.language.get_lang(ft) or ft
+					end
+				end
+				if not ts_parsers.get_parser then
+					ts_parsers.get_parser = function(bufnr, lang)
+						return vim.treesitter.get_parser(bufnr, lang)
+					end
+				end
+			end
+			if not package.loaded["nvim-treesitter.configs"] then
+				package.loaded["nvim-treesitter.configs"] = {
+					is_enabled = function(_, lang, bufnr)
+						return pcall(vim.treesitter.get_parser, bufnr, lang)
+					end,
+					get_module = function(_)
+						return { additional_vim_regex_highlighting = false }
+					end,
+				}
+			end
+			-- COMPAT END
+
 			require("telescope").setup({
 				defaults = {
 					file_ignore_patterns = {
