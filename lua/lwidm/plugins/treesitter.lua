@@ -9,27 +9,6 @@ local plugin = {
 			"OXY2DEV/markview.nvim",
 		},
 		opts = {
-			ensure_installed = {
-				"python",
-				"c",
-				"cpp",
-				"rust",
-				"lua",
-				"javascript",
-				"typescript",
-				"css",
-				"html",
-				"bash",
-				"html",
-				"markdown",
-				"vim",
-				"vimdoc",
-				"nix",
-				"fortran",
-				"matlab",
-			},
-			ignore_install = { "latex" },
-			auto_install = true,
 			highlight = {
 				enable = true,
 				disable = { "latex" },
@@ -46,7 +25,16 @@ local plugin = {
 				---@diagnostic disable-next-line: missing-fields
 				require("nvim-treesitter.configs").setup(opts)
 			else
-				require("nvim-treesitter").setup(opts)
+				-- New nvim-treesitter v1.0+ API: setup() only accepts install_dir;
+				-- highlight must be enabled manually via autocmd
+				local disable = (opts.highlight or {}).disable or {}
+				vim.api.nvim_create_autocmd("FileType", {
+					callback = function()
+						if not vim.list_contains(disable, vim.bo.filetype) then
+							pcall(vim.treesitter.start)
+						end
+					end,
+				})
 			end
 		end,
 	},
