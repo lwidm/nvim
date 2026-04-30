@@ -1,5 +1,6 @@
 -- lua/lwidm/plugins/markdown.lua
 
+-- BUG : When enabling markview it needs to be added as a dependacy in treesitter! (don't remember why)
 local enabled = false
 local plugin = {
 
