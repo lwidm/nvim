@@ -31,9 +31,9 @@ local plugin = {
 							local python_executable
 							if is_conda then
 								if is_windows then
-									python_executable = virtual .. "\\python.exe"
+									python_executable = virtual .. "\\Sctips\\python.exe"
 								else
-									python_executable = virtual .. "/python"
+									python_executable = virtual .. "/bin/python"
 								end
 							else
 								if is_windows then
