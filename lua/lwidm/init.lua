@@ -49,7 +49,7 @@ vim.opt.undofile = true
 vim.opt.incsearch = true
 vim.opt.hlsearch = true
 
-vim.wo.conceallevel = 0 -- no concealment. Charachters are displayed as-is.
+vim.wo.conceallevel = 1 -- no concealment. Charachters are displayed as-is.
 -- vim.wo.conceallevel = 1 -- Conceal single-character items (e.g., asterisks for bold text in Markdown)
 -- vim.wo.conceallevel = 2 -- Conceal both single-character items and multi-character items (e.g., entire words or phrases).
 
