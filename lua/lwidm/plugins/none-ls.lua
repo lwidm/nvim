@@ -20,30 +20,31 @@ local plugin = {
 							local virtual_env = os.getenv("VIRTUAL_ENV")
 							local conda_prefix = os.getenv("CONDA_PREFIX")
 							local prefix = os.getenv("PREFIX")
+							local virtual = virtual_env or conda_prefix or prefix
 
-							-- Determine environment type
-							local virtual = virtual_env or conda_prefix or prefix or "/usr"
-							local is_windows = (vim.g.os_name == "Windows")
-							local is_conda = conda_prefix and (virtual == conda_prefix)
-								or (prefix and (virtual == prefix))
-
-							-- Set Python path based on environment type and OS
-							local python_executable
-							if is_conda then
-								if is_windows then
-									python_executable = virtual .. "\\Sctips\\python.exe"
-								else
-									python_executable = virtual .. "/bin/python"
-								end
-							else
-								if is_windows then
-									python_executable = virtual .. "\\Scripts\\python.exe"
-								else
-									python_executable = virtual .. "/bin/python"
-								end
+							-- No active environment: let mypy locate python itself
+							if not virtual then
+								return {}
 							end
 
-							return { "--python-executable", python_executable }
+							local is_windows = (vim.g.os_name == "Windows")
+							local is_conda = (virtual == conda_prefix) or (virtual == prefix)
+
+							local python_executable
+							if is_conda then
+								python_executable = is_windows
+									and (virtual .. "\\Scripts\\python.exe")
+									or (virtual .. "/bin/python")
+							else
+								python_executable = is_windows
+									and (virtual .. "\\Scripts\\python.exe")
+									or (virtual .. "/bin/python")
+							end
+
+							if vim.fn.executable(python_executable) == 1 then
+								return { "--python-executable", python_executable }
+							end
+							return {}
 						end,
 					})
 				)
