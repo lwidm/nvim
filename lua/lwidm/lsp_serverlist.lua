@@ -12,7 +12,7 @@ M.lsp_servers = {
 	lua_ls = { "lua-language-server", {
 		settings = { Lua = { diagnostics = { globals = { "vim" } } } },
 	} }, -- lua
-	cmake = { "cmake-language-server", {} }, -- cmake
+	neocmake = { "neocmakelsp", {} }, -- cmake
 	pyright = { "pyright", {} }, -- python
 	-- jsonls = {}, -- json
 	-- web
