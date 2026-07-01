@@ -35,8 +35,8 @@ local function parse_clang_format(path)
 	end
 	local content = f:read("*a")
 	f:close()
-	local indent = content:match("^[ \t]*IndentWidth:%s*(%d+)")
-	local use_tab = content:match("^[ \t]*UseTab:%s*([A-Za-z]+)")
+	local indent = content:match("[ \t]*IndentWidth:%s*(%d+)")
+	local use_tab = content:match("[ \t]*UseTab:%s*([A-Za-z]+)")
 	return { indent_width = indent and tonumber(indent) or nil, use_tab = use_tab }
 end
 

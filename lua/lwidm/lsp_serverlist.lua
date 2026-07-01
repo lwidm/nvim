@@ -59,6 +59,7 @@ M.lsp_servers = {
 M.format_servers = {
 	lua = { { "stylua", "stylua" } }, -- lua
 	cpp = { { "clang-format", "clang-format" } }, -- c and c++
+	cuda = { { "clang-format", "clang-format" } }, -- cuda
 	python = { { "black", "black" } }, -- python
 	-- python = { { "isort", "isort" } }, -- python
 	cmake = { { "cmakelang", "cmake_format" } }, -- cmake
