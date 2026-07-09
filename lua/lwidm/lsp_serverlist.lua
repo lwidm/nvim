@@ -14,7 +14,7 @@ M.lsp_servers = {
 	} }, -- lua
 	neocmake = { "neocmakelsp", {} }, -- cmake
 	pyright = { "pyright", {} }, -- python
-	-- jsonls = {}, -- json
+	jsonls = { "json-lsp", {} }, -- json
 	-- web
 	html = { "html-lsp", {} }, -- html
 	cssls = { "css-lsp", {} }, -- css
@@ -63,6 +63,7 @@ M.format_servers = {
 	python = { { "black", "black" } }, -- python
 	-- python = { { "isort", "isort" } }, -- python
 	cmake = { { "cmakelang", "cmake_format" } }, -- cmake
+	json = { { "prettierd", "prettierd" } }, -- json
 	fortran = { { "fprettify", "fprettify" } }, -- fortan90
 	fortran90 = { { "fprettify", "fprettify" } }, -- fortan90
 	-- fortran77 = { { "fprettify", "fprettify" } }, -- fortan77
